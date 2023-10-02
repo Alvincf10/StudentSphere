@@ -11,9 +11,11 @@ class menu extends Component
     /**
      * Create a new component instance.
      */
+    public $items;
+
     public function __construct()
     {
-        //
+        // $this->items = $items;
     }
 
     /**
@@ -22,5 +24,42 @@ class menu extends Component
     public function render(): View|Closure|string
     {
         return view('components.menu');
+    }
+
+    public function list() {
+        return [
+            [
+                'label' => 'Dashboard',
+                'route' => 'dashboard',
+                'type' => 'item',
+                'icon' => 'ti ti-layout-dashboard'
+            ],
+            [
+                'label' => 'Management Event',
+                'route' => 'management-event',
+                'type' => 'group',
+                'icon' => 'ti ti-layout-dashboard',
+                'children' =>[
+                    [
+                        'label' => 'Event',
+                        'route' => 'event',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                    [
+                        'label' => 'Lokasi',
+                        'route' => 'lokasi',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                    [
+                        'label' => 'Kategori',
+                        'route' => 'kategori',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                ]
+            ],
+        ];
     }
 }

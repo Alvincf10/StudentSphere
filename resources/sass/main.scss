@@ -1,0 +1,28 @@
+.menu-sub{
+    margin-left: 20px;
+}
+
+.menu-sub li a{
+    margin-top: 10px !important;
+    padding: 10px 0 0 0 !important;
+}
+
+.submenu-toggle-icon::before {
+    content: "▼";
+    display: inline-block;
+    margin-left: 5px;
+    transition: transform 0.2s;
+}
+
+.sidebar-item.active .submenu-toggle-icon::before {
+    transform: rotate(90deg);
+}
+
+.menu-sub {
+    display: none;
+}
+
+.sidebar-item.active .menu-sub {
+    display: block;
+}
+

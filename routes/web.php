@@ -20,4 +20,12 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/dashboard', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::group(['middleware' => ['auth']], function() {
+
+    Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('dashboard');
+    Route::get('/management-event', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('management-event');
+    Route::get('management-event/event', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('event');
+    Route::get('management-event/lokasi', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('lokasi');
+    Route::get('management-event/kategori', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('kategori');
+});
+
