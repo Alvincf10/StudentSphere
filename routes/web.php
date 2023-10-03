@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -23,9 +24,16 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('dashboard');
-    Route::get('/management-event', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('management-event');
-    Route::get('management-event/event', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('event');
-    Route::get('management-event/lokasi', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('lokasi');
-    Route::get('management-event/kategori', [App\Http\Controllers\Admin\Dashboard\DashboardController::class,'index'])->name('kategori');
+
+    //event
+    Route::get('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'index'])->name('event');
+
+    //location
+    Route::get('management-event/location', [App\Http\Controllers\Admin\MasterData\LocationController::class,'index'])->name('location');
+    Route::get('management-event/location/create', [App\Http\Controllers\Admin\MasterData\LocationController::class,'create'])->name('location.create');
+
+
+    Route::get('management-event/category', [App\Http\Controllers\Admin\MasterData\CategoryController::class,'index'])->name('category');
+    Route::get('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('organizer');
 });
 
