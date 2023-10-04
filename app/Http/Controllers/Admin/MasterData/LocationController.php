@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Admin\MasterData;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Location;
+use Illuminate\Support\Facades\Validator;
 
 class LocationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Location $location)
     {
-        return view('layouts.admin.Master-data.location.index');
+        $location = $location->all();
+        return view('layouts.admin.Master-data.location.index',compact('location'));
     }
 
     /**
@@ -26,9 +29,20 @@ class LocationController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Location $location)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'location_name' =>'required'
+        ]);
+
+        if($validator -> fails()){
+            return redirect()->route('location.create')->withErrors($validator)->withInput();
+        }else{
+            $location->location_name = $request->input('location_name');
+
+            $location->save();
+            return redirect()->route('location');
+        }
     }
 
     /**
@@ -60,6 +74,9 @@ class LocationController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $location = Location::findOrFail($id);
+        $location->delete();
+
+        return redirect()->route('location');
     }
 }
