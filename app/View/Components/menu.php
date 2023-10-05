@@ -47,14 +47,20 @@ class menu extends Component
                         'icon' => 'ti ti-point-filled'
                     ],
                     [
-                        'label' => 'Lokasi',
-                        'route' => 'lokasi',
+                        'label' => 'Location',
+                        'route' => 'location',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'
                     ],
                     [
-                        'label' => 'Kategori',
-                        'route' => 'kategori',
+                        'label' => 'Categroy',
+                        'route' => 'category',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                    [
+                        'label' => 'Organizer',
+                        'route' => 'organizer',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'
                     ],
