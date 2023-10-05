@@ -9,7 +9,7 @@
             <div class="d-flex justify-content-between">
                 <h5 class="card-title fw-semibold mb-4">Location</h5>
                 <div class="btn-add">
-                    <a class="btn btn-primary" href="{{route('location.create')}}"><i class="ti ti-plus"></i>Tambah</a>
+                    <a class="btn btn-primary" href="{{route('location.create')}}"><i class="ti ti-plus"></i>Create</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -35,8 +35,8 @@
                         <p class="mb-0 fw-normal">{{$locations['location_name']}}</p>
                       </td>
                       <td class="border-bottom-0">
-                        <a class="btn btn-warning"><i class="ti ti-edit"></i></a>
-                        <a class="btn btn-danger" onclick="openDeleteModal({{$locations['id']}})" ><i class="ti ti-trash"></i></a>
+                        <a class="btn btn-warning" href="{{route('location.edit',['id'=>$locations['id']])}}"><i class="ti ti-edit"></i></a>
+                        <a class="btn btn-danger" onclick="openDeleteModal({{$locations['id']}}, '{{$locations['location_name']}}')"><i class="ti ti-trash"></i></a>
                       </td>
                     </tr>
                     @endforeach
@@ -49,23 +49,23 @@
 </div>
 @endsection
 
-<!-- Modal Konfirmasi Hapus -->
+<!-- Modal confirm delete -->
 <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModalLabel">Konfirmasi Hapus</h5>
+          <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          Apakah Anda yakin ingin menghapus data ini?
+
         </div>
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
           <form id="deleteForm" method="POST">
             @csrf
             @method('DELETE')
-            <button type="submit" class="btn btn-danger">Ya, Hapus</button>
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
           </form>
         </div>
       </div>
@@ -73,10 +73,13 @@
   </div>
 
   <script>
-    function openDeleteModal(id) {
+    function openDeleteModal(id,locationName) {
     var deleteForm = document.getElementById('deleteForm');
-    deleteForm.action = 'location/' + id; // Sesuaikan dengan route delete yang sesuai
-    $('#deleteModal').modal('show'); // Menampilkan modal
+    deleteForm.action = 'location/' + id;
+
+    var modalBody = document.querySelector('.modal-body');
+    modalBody.innerHTML = 'Are you sure to delete data <strong>'+ locationName +'</strong>'
+    $('#deleteModal').modal('show');
   }
 
   </script>

@@ -32,6 +32,8 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('management-event/location', [App\Http\Controllers\Admin\MasterData\LocationController::class,'index'])->name('location');
     Route::get('management-event/location/create', [App\Http\Controllers\Admin\MasterData\LocationController::class,'create'])->name('location.create');
     Route::post('management-event/location', [App\Http\Controllers\Admin\MasterData\LocationController::class,'store'])->name('location.store');
+    Route::get('management-event/location/edit/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'edit'])->name('location.edit');
+    Route::put('management-event/location/update/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'update'])->name('location.update');
     Route::delete('management-event/location/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'destroy'])->name('location.delete');
 
 

@@ -18,7 +18,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
     <link rel="stylesheet" href="{{asset('tamplate/css/styles.min.css')}}">
-    <link rel="shortcut icon" type="image/png" href="{{asset('tamplate/images/logos/favicon.png')}}" />
+    <link rel="shortcut icon" type="image/png" href="{{asset('image/logo.png')}}" />
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss','resources/sass/main.scss' , 'resources/js/app.js'])

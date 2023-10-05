@@ -31,17 +31,17 @@ class LocationController extends Controller
      */
     public function store(Request $request, Location $location)
     {
-        $validator = Validator::make($request->all(),[
-            'location_name' =>'required'
-        ]);
+            $validator = Validator::make($request->all(),[
+                'location_name' =>'required'
+            ]);
 
-        if($validator -> fails()){
-            return redirect()->route('location.create')->withErrors($validator)->withInput();
-        }else{
-            $location->location_name = $request->input('location_name');
+            if($validator -> fails()){
+                return redirect()->route('location.create')->withErrors($validator)->withInput();
+            }else{
+                $location->location_name = $request->input('location_name');
 
-            $location->save();
-            return redirect()->route('location');
+                $location->save();
+                return redirect()->route('location');
         }
     }
 
@@ -58,15 +58,29 @@ class LocationController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $location = Location::find($id);
+
+        return view('layouts.admin.Master-data.Location.edit',compact('location'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id, Location $location)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'location_name' =>'required'
+        ]);
+
+        if($validator -> fails()){
+            return redirect('management-event/location/edit/'.$id)->withErrors($validator)->withInput();
+        }else{
+            $location = Location::find($id);
+            $location->location_name = $request->input('location_name');
+
+            $location->save();
+            return redirect()->route('location');
+    }
     }
 
     /**

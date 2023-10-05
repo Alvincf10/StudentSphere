@@ -11,9 +11,8 @@
             <div class="card mb-0">
               <div class="card-body">
                 <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="{{asset('tamplate/images/logos/dark-logo.svg')}}" width="180" alt="">
+                  <img src="{{asset('image/logo.png')}}" width="50%" alt="">
                 </a>
-                <p class="text-center">Student Sphare</p>
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                   <div class="mb-3">
