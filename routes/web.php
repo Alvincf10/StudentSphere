@@ -15,10 +15,6 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
@@ -48,4 +44,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('master-data/about-us', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('about-us');
 
 });
+
+
+    Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
 
