@@ -66,6 +66,20 @@ class menu extends Component
                     ],
                 ]
             ],
+            [
+                'label' => 'Master Data',
+                'route' => 'master-data',
+                'type' => 'group',
+                'icon' => 'ti ti-layout-dashboard',
+                'children' =>[
+                    [
+                        'label' => 'about us',
+                        'route' => 'about-us',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                ]
+            ],
         ];
     }
 }

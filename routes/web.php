@@ -36,8 +36,16 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('management-event/location/update/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'update'])->name('location.update');
     Route::delete('management-event/location/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'destroy'])->name('location.delete');
 
-
+    //category
     Route::get('management-event/category', [App\Http\Controllers\Admin\MasterData\CategoryController::class,'index'])->name('category');
+
+
+    //organizer
     Route::get('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('organizer');
+
+
+    //master data
+    Route::get('master-data/about-us', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('about-us');
+
 });
 
