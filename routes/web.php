@@ -38,11 +38,20 @@ Route::group(['middleware' => ['auth']], function() {
 
     //category
     Route::get('management-event/category', [App\Http\Controllers\Admin\MasterData\CategoryController::class,'index'])->name('category');
+    Route::get('management-event/category/create', [App\Http\Controllers\Admin\MasterData\categoryController::class,'create'])->name('category.create');
+    Route::post('management-event/category', [App\Http\Controllers\Admin\MasterData\categoryController::class,'store'])->name('category.store');
+    Route::get('management-event/category/edit/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'edit'])->name('category.edit');
+    Route::put('management-event/category/update/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'update'])->name('category.update');
+    Route::delete('management-event/category/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'destroy'])->name('category.delete');
 
 
     //organizer
     Route::get('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('organizer');
-
+    Route::get('management-event/organizer/create', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'create'])->name('organizer.create');
+    Route::post('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'store'])->name('organizer.store');
+    Route::get('management-event/organizer/edit/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'edit'])->name('organizer.edit');
+    Route::put('management-event/organizer/update/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'update'])->name('organizer.update');
+    Route::delete('management-event/organizer/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'destroy'])->name('organizer.delete');
 
     //master data
     Route::get('master-data/about-us', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('about-us');

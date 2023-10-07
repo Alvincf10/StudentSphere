@@ -91,6 +91,6 @@ class LocationController extends Controller
         $location = Location::findOrFail($id);
         $location->delete();
 
-        return redirect()->route('location')->with('success','Delee this data');
+        return redirect()->route('location')->with('success','Delete this data');
     }
 }

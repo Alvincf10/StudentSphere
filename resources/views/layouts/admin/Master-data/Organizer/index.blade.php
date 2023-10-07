@@ -7,9 +7,9 @@
         <div class="card w-100">
           <div class="card-body p-4">
             <div class="d-flex justify-content-between">
-                <h5 class="card-title fw-semibold mb-4">Categories </h5>
+                <h5 class="card-title fw-semibold mb-4">organizer </h5>
                 <div class="btn-add">
-                    <a class="btn btn-primary" href="{{route('category.create')}}"><i class="ti ti-plus"></i>Create</a>
+                    <a class="btn btn-primary" href="{{route('organizer.create')}}"><i class="ti ti-plus"></i>Create</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -20,7 +20,7 @@
                       <h6 class="fw-semibold mb-0">No</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Type Category</h6>
+                      <h6 class="fw-semibold mb-0">organizer Name</h6>
                     </th>
                     <th class="border-bottom-0">
                         <h6>Action</h6>
@@ -28,15 +28,15 @@
                   </tr>
                 </thead>
                 <tbody>
-                    @foreach ($category as $category )
+                    @foreach ($organizer as $organizer )
                     <tr>
-                      <td class="border-bottom-0">{{$category ['id']}}</td>
+                      <td class="border-bottom-0">{{$organizer ['id']}}</td>
                       <td class="border-bottom-0">
-                        <p class="mb-0 fw-normal">{{$category ['category_name']}}</p>
+                        <p class="mb-0 fw-normal">{{$organizer ['name_organizer']}}</p>
                       </td>
                       <td class="border-bottom-0">
-                        <a class="btn btn-warning" href="{{route('category.edit',['id'=>$category ['id']])}}"><i class="ti ti-edit"></i></a>
-                        <a class="btn btn-danger" onclick="openDeleteModal({{$category['id']}}, '{{$category['category_name']}}')"><i class="ti ti-trash"></i></a>
+                        <a class="btn btn-warning" href="{{route('organizer.edit',['id'=>$organizer ['id']])}}"><i class="ti ti-edit"></i></a>
+                        <a class="btn btn-danger" onclick="openDeleteModal({{$organizer['id']}}, '{{$organizer['name_organizer']}}')"><i class="ti ti-trash"></i></a>
                       </td>
                     </tr>
                     @endforeach
@@ -73,12 +73,12 @@
   </div>
 
   <script>
-    function openDeleteModal(id,categoryName) {
+    function openDeleteModal(id,organizerName) {
     var deleteForm = document.getElementById('deleteForm');
-    deleteForm.action = 'category/' + id;
+    deleteForm.action = 'organizer/' + id;
 
     var modalBody = document.querySelector('.modal-body');
-    modalBody.innerHTML = 'Are you sure to delete data <strong>'+ categoryName+'</strong>'
+    modalBody.innerHTML = 'Are you sure to delete data <strong>'+ organizerName+'</strong>'
     $('#deleteModal').modal('show');
   }
 
