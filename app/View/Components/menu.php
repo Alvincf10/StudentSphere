@@ -74,7 +74,7 @@ class menu extends Component
                 'children' =>[
                     [
                         'label' => 'about us',
-                        'route' => 'about-us',
+                        'route' => 'aboutus',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'
                     ],

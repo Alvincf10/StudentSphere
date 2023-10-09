@@ -54,7 +54,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::delete('management-event/organizer/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'destroy'])->name('organizer.delete');
 
     //master data
-    Route::get('master-data/about-us', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('about-us');
-
+    Route::get('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
+    Route::post('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
 });
 
