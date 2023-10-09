@@ -53,7 +53,7 @@ class menu extends Component
                         'icon' => 'ti ti-point-filled'
                     ],
                     [
-                        'label' => 'Categroy',
+                        'label' => 'Category',
                         'route' => 'category',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'

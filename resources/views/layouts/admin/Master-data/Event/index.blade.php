@@ -6,101 +6,76 @@
     <div class="col-lg-12 d-flex align-items-stretch">
         <div class="card w-100">
           <div class="card-body p-4">
-            <h5 class="card-title fw-semibold mb-4">Event</h5>
+            <div class="d-flex justify-content-between">
+                <h5 class="card-title fw-semibold mb-4">Event</h5>
+                <div class="btn-add">
+                    <a class="btn btn-primary" href="{{route('event.create')}}"><i class="ti ti-plus"></i>Create</a>
+                </div>
+            </div>
             <div class="table-responsive">
               <table class="table text-nowrap mb-0 align-middle">
                 <thead class="text-dark fs-4">
                   <tr>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Id</h6>
+                      <h6 class="fw-semibold mb-0">No</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Assigned</h6>
+                      <h6 class="fw-semibold mb-0">Progam Name</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Name</h6>
+                      <h6 class="fw-semibold mb-0">Qouta</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Priority</h6>
+                      <h6 class="fw-semibold mb-0">Start Date</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">Budget</h6>
+                      <h6 class="fw-semibold mb-0">End Date</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Location</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Organizer</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Category</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                        <h6>Action</h6>
                     </th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td class="border-bottom-0"><h6 class="fw-semibold mb-0">1</h6></td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-1">Sunil Joshi</h6>
-                        <span class="fw-normal">Web Designer</span>
-                    </td>
-                    <td class="border-bottom-0">
-                      <p class="mb-0 fw-normal">Elite Admin</p>
-                    </td>
-                    <td class="border-bottom-0">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-primary rounded-3 fw-semibold">Low</span>
-                      </div>
-                    </td>
-                    <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0 fs-4">$3.9</h6>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="border-bottom-0"><h6 class="fw-semibold mb-0">2</h6></td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-1">Andrew McDownland</h6>
-                        <span class="fw-normal">Project Manager</span>
-                    </td>
-                    <td class="border-bottom-0">
-                      <p class="mb-0 fw-normal">Real Homes WP Theme</p>
-                    </td>
-                    <td class="border-bottom-0">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-secondary rounded-3 fw-semibold">Medium</span>
-                      </div>
-                    </td>
-                    <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0 fs-4">$24.5k</h6>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="border-bottom-0"><h6 class="fw-semibold mb-0">3</h6></td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-1">Christopher Jamil</h6>
-                        <span class="fw-normal">Project Manager</span>
-                    </td>
-                    <td class="border-bottom-0">
-                      <p class="mb-0 fw-normal">MedicalPro WP Theme</p>
-                    </td>
-                    <td class="border-bottom-0">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-danger rounded-3 fw-semibold">High</span>
-                      </div>
-                    </td>
-                    <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0 fs-4">$12.8k</h6>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td class="border-bottom-0"><h6 class="fw-semibold mb-0">4</h6></td>
-                    <td class="border-bottom-0">
-                        <h6 class="fw-semibold mb-1">Nirav Joshi</h6>
-                        <span class="fw-normal">Frontend Engineer</span>
-                    </td>
-                    <td class="border-bottom-0">
-                      <p class="mb-0 fw-normal">Hosting Press HTML</p>
-                    </td>
-                    <td class="border-bottom-0">
-                      <div class="d-flex align-items-center gap-2">
-                        <span class="badge bg-success rounded-3 fw-semibold">Critical</span>
-                      </div>
-                    </td>
-                    <td class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0 fs-4">$2.4k</h6>
-                    </td>
-                  </tr>
+                    @foreach ($program as $programs)
+                    <tr>
+                      <td class="border-bottom-0">{{$programs->id}}</td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->program_name}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->qouta}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->start_date_program))}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->end_date_program))}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->location->location_name}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->organizer->name_organizer}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->category->category_name}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <a class="btn btn-warning" href="{{route('event.edit',['id'=>$programs['id']])}}"><i class="ti ti-edit"></i></a>
+                        <a class="btn btn-danger" onclick="openDeleteModal({{$programs['id']}}, '{{$programs['location_name']}}')"><i class="ti ti-trash"></i></a>
+                      </td>
+                    </tr>
+                    @endforeach
                 </tbody>
               </table>
             </div>
@@ -109,3 +84,43 @@
       </div>
 </div>
 @endsection
+
+<!-- Modal confirm delete -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Confirm Delete</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <form id="deleteForm" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">Yes, Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function openDeleteModal(id,locationName) {
+    var deleteForm = document.getElementById('deleteForm');
+    deleteForm.action = 'location/' + id;
+
+    var modalBody = document.querySelector('.modal-body');
+    modalBody.innerHTML = 'Are you sure to delete data <strong>'+ locationName +'</strong>'
+    $('#deleteModal').modal('show');
+  }
+
+  function showDeleteSuccessMessage() {
+    var deleteMessage = document.getElementById('deleteMessage');
+    deleteMessage.innerHTML = 'Data berhasil dihapus.';
+    deleteMessage.style.display = 'block'; // Tampilkan pesan
+  }
+  </script>

@@ -3,24 +3,33 @@
 namespace App\Http\Controllers\Admin\MasterData;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Location;
+use App\Models\Organizer;
+use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Program $program)
     {
-        return  view('layouts.admin.Master-data.Event.index');
+        $program = Program::with('organizer','location','category')->get();
+        return  view('layouts.admin.Master-data.Event.index',compact('program'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Organizer $organizer, Program  $program, Location $location, Category $category)
     {
-        //
+        $organizer = $organizer->all();
+        $location = $location->all();
+        $category = $category->all();
+        return view('layouts.admin.Master-data.Event.add',compact('organizer','location','category'));
     }
 
     /**
@@ -44,7 +53,7 @@ class EventController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        return view('layouts.admin.Master-data.Event.edit');
     }
 
     /**
