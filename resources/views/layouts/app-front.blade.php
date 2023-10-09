@@ -31,8 +31,11 @@
 <body>
 
     <main>
+        <div class="page-wrapper">
             @include('layouts.shared.header-frontOffice')
             @yield('content')
+            @include('layouts.shared.footer-frontOffice')
+        </div>
     </main>
 
 

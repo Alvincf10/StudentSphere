@@ -43,12 +43,18 @@
                 <h2 class="header-title">Webinar Self Development</h2>
                 <strong><span>Organizer By </strong><span class="organizer">Binus</span></span>
                 <div class="group-detail-info mt-3">
-                    <i class="ti ti-calendar-event color-primary icon mr-3"></i><span class="description-event">21 Sep  2023</span><br>
-                    <i class="ti ti-clock-hour-12 color-primary icon mr-3"></i><span class="description-event">09.00 - 10.00</span><br>
-                    <i class="ti ti-map-pin color-primary icon mr-3"></i><span class="description-event">Jln. anggrek no 12 Jakarta selatan</span>
+                    <div class="group-info d-flex ">
+                        <i class="ti ti-calendar-event mr-3 icon color-primary"></i><span class="description-event">21 Sep  2023</span><br>
+                    </div>
+                    <div class="group-info d-flex mt-3">
+                        <i class="ti ti-clock-hour-12 mr-3 color-primary icon"></i><span class="description-event">09.00 - 10.00</span><br>
+                    </div>
+                    <div class="group-info d-flex mt-3">
+                        <i class="ti ti-map-pin mr-3 color-primary icon"></i><span class="description-event">Jln. anggrek no 12 Jakarta selatan</span>
+                    </div>
                 </div>
                 <div class="d-flex mt-4">
-                    <a href="" class="btn btn-detail mr-3">Event Details</a>
+                    <a href="{{route('event.detail')}}" class="btn btn-detail mr-3">Event Details</a>
                     <a href="" class="btn btn-book">Book Now</a>
                 </div>
             </div>
