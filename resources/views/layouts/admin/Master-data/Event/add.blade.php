@@ -13,35 +13,35 @@
                   <label class="form-label">event Name</label>
                   <input type="text" class="form-control" name="event_name">
                   @error('event_name')
-                                <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="mb-3 col-12">
                   <label class="form-label">Description</label>
                   <textarea  class="form-control" name="description"></textarea>
                   @error('description')
-                                <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="mb-3 col-6">
                   <label class="form-label">Start Date</label>
                   <input type="date" class="form-control" name="startDate">
                   @error('startDate')
-                                <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="mb-3 col-6">
                   <label class="form-label">End Date</label>
                   <input type="date" class="form-control" name="endDate">
                   @error('endDate')
-                                <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="mb-3 col-6">
                   <label class="form-label">Qouta</label>
-                  <input type="text" class="form-control" name="qouta">
+                  <input type="number" class="form-control" name="qouta">
                   @error('qouta')
-                                <span class="text-danger">{{ $message }}</span>
+                        <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>
                 <div class="mb-3 col-6">
@@ -49,7 +49,7 @@
                   <select name="organizer" class="form-select" >
                     @foreach ($organizer as $organizers)
                     <option value="" selected disabled hidden>Choose Organizer</option>
-                    <option value="">{{$organizers->name_organizer}}</option>
+                    <option value="{{$organizers->id}}">{{$organizers->name_organizer}}</option>
                     @endforeach
                   </select>
                   @error('organizer')
@@ -72,8 +72,8 @@
                   <label class="form-label">Category</label>
                   <select name="category" class="form-select" >
                     @foreach ($category as $categorys)
-                    <option selected disabled hidden>Choose category</option>
-                    <option value="{{$categorys->id}}">{{$categorys->category_name}}</option>
+                        <option selected disabled hidden>Choose category</option>
+                        <option value="{{$categorys->id}}">{{$categorys->category_name}}</option>
                     @endforeach
                   </select>
                   @error('category')

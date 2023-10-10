@@ -1,6 +1,5 @@
 @extends('layouts.app')
 
-
 @section('content')
 <div class="container-fluid">
     <div class="col-lg-12 d-flex align-items-stretch">
@@ -9,7 +8,7 @@
             <div class="d-flex justify-content-between">
                 <h5 class="card-title fw-semibold mb-4">Event</h5>
                 <div class="btn-add">
-                    <a class="btn btn-primary" href="{{route('event.create')}}"><i class="ti ti-plus"></i>Create</a>
+                    <a class="btn btn-primary" href="{{ route('event.create') }}"><i class="ti ti-plus"></i>Create</a>
                 </div>
             </div>
             <div class="table-responsive">
@@ -71,8 +70,8 @@
                         <p class="mb-0 fw-normal">{{$programs->category->category_name}}</p>
                       </td>
                       <td class="border-bottom-0">
-                        <a class="btn btn-warning" href="{{route('event.edit',['id'=>$programs['id']])}}"><i class="ti ti-edit"></i></a>
-                        <a class="btn btn-danger" onclick="openDeleteModal({{$programs['id']}}, '{{$programs['location_name']}}')"><i class="ti ti-trash"></i></a>
+                        <a class="btn btn-warning" href="{{ route('event.edit',['id' => $programs->id]) }}"><i class="ti ti-edit"></i></a>
+                        <a class="btn btn-danger" onclick="openDeleteModal({{ $programs->id }}, '{{$programs->program_name}}')"><i class="ti ti-trash"></i></a>
                       </td>
                     </tr>
                     @endforeach
@@ -108,19 +107,19 @@
     </div>
   </div>
 
-  <script>
-    function openDeleteModal(id,locationName) {
-    var deleteForm = document.getElementById('deleteForm');
-    deleteForm.action = 'location/' + id;
+<script>
+    function openDeleteModal(id, programName) {
+        var deleteForm = document.getElementById('deleteForm');
+        deleteForm.action = 'event/' + id;
 
-    var modalBody = document.querySelector('.modal-body');
-    modalBody.innerHTML = 'Are you sure to delete data <strong>'+ locationName +'</strong>'
-    $('#deleteModal').modal('show');
-  }
+        var modalBody = document.querySelector('.modal-body');
+        modalBody.innerHTML = 'Are you sure to delete data <strong>' + programName + '</strong>';
+        $('#deleteModal').modal('show');
+    }
 
-  function showDeleteSuccessMessage() {
-    var deleteMessage = document.getElementById('deleteMessage');
-    deleteMessage.innerHTML = 'Data berhasil dihapus.';
-    deleteMessage.style.display = 'block'; // Tampilkan pesan
-  }
-  </script>
+    function showDeleteSuccessMessage() {
+        var deleteMessage = document.getElementById('deleteMessage');
+        deleteMessage.innerHTML = 'Data berhasil dihapus.';
+        deleteMessage.style.display = 'block'; // Tampilkan pesan
+    }
+</script>
