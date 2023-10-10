@@ -82,4 +82,9 @@
     $('#deleteModal').modal('show');
   }
 
+  function showDeleteSuccessMessage() {
+    var deleteMessage = document.getElementById('deleteMessage');
+    deleteMessage.innerHTML = 'Data berhasil dihapus.';
+    deleteMessage.style.display = 'block'; // Tampilkan pesan
+  }
   </script>

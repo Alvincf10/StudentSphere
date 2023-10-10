@@ -15,10 +15,6 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
@@ -27,6 +23,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     //event
     Route::get('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'index'])->name('event');
+    Route::get('management-event/event/create', [App\Http\Controllers\Admin\MasterData\EventController::class,'create'])->name('event.create');
+    Route::post('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'store'])->name('event.store');
+    Route::get('management-event/event/edit/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'edit'])->name('event.edit');
+    Route::put('management-event/event/update/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'update'])->name('event.update');
+    Route::delete('management-event/event/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'destroy'])->name('event.delete');
 
     //location
     Route::get('management-event/location', [App\Http\Controllers\Admin\MasterData\LocationController::class,'index'])->name('location');
@@ -36,8 +37,30 @@ Route::group(['middleware' => ['auth']], function() {
     Route::put('management-event/location/update/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'update'])->name('location.update');
     Route::delete('management-event/location/{id}', [App\Http\Controllers\Admin\MasterData\LocationController::class,'destroy'])->name('location.delete');
 
-
+    //category
     Route::get('management-event/category', [App\Http\Controllers\Admin\MasterData\CategoryController::class,'index'])->name('category');
+    Route::get('management-event/category/create', [App\Http\Controllers\Admin\MasterData\categoryController::class,'create'])->name('category.create');
+    Route::post('management-event/category', [App\Http\Controllers\Admin\MasterData\categoryController::class,'store'])->name('category.store');
+    Route::get('management-event/category/edit/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'edit'])->name('category.edit');
+    Route::put('management-event/category/update/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'update'])->name('category.update');
+    Route::delete('management-event/category/{id}', [App\Http\Controllers\Admin\MasterData\categoryController::class,'destroy'])->name('category.delete');
+
+
+    //organizer
     Route::get('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'index'])->name('organizer');
+    Route::get('management-event/organizer/create', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'create'])->name('organizer.create');
+    Route::post('management-event/organizer', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'store'])->name('organizer.store');
+    Route::get('management-event/organizer/edit/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'edit'])->name('organizer.edit');
+    Route::put('management-event/organizer/update/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'update'])->name('organizer.update');
+    Route::delete('management-event/organizer/{id}', [App\Http\Controllers\Admin\MasterData\OrganizerController::class,'destroy'])->name('organizer.delete');
+
+    //master data
+    Route::get('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
+    Route::post('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
 });
+
+
+    Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
+    Route::get('/event', [App\Http\Controllers\front\FrontOfficeController::class,'allEvent'])->name('frontOffice');
+    Route::get('/event/event-detail/', [App\Http\Controllers\front\FrontOfficeController::class,'detailEvent'])->name('event.detail');
 

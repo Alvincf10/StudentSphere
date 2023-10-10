@@ -53,7 +53,7 @@ class menu extends Component
                         'icon' => 'ti ti-point-filled'
                     ],
                     [
-                        'label' => 'Categroy',
+                        'label' => 'Category',
                         'route' => 'category',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'
@@ -61,6 +61,20 @@ class menu extends Component
                     [
                         'label' => 'Organizer',
                         'route' => 'organizer',
+                        'type' => 'item',
+                        'icon' => 'ti ti-point-filled'
+                    ],
+                ]
+            ],
+            [
+                'label' => 'Master Data',
+                'route' => 'master-data',
+                'type' => 'group',
+                'icon' => 'ti ti-layout-dashboard',
+                'children' =>[
+                    [
+                        'label' => 'about us',
+                        'route' => 'aboutus',
                         'type' => 'item',
                         'icon' => 'ti ti-point-filled'
                     ],

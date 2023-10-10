@@ -5,6 +5,57 @@
     margin-left: 20px;
 }
 
+.color-primary{
+    color: #5AA3F8;
+}
+
+.nav-a{
+    text-decoration: none !important;
+    cursor: pointer;
+}
+
+.icon{
+    font-size: 25px;
+}
+
+.description-event{
+    font-weight: 500;
+}
+
+.header-title{
+    font-weight: 700;
+    margin-top: 5rem;
+}
+
+.btn-detail{
+    border-radius: 20px;
+    width: 20%;
+    border: 2px solid black;
+}
+
+.btn-book{
+    border-radius: 20px;
+    width: 20%;
+    background-color: #5AA3F8;
+    color: white;
+}
+
+.btn-book:hover{
+    color: white;
+}
+
+.btn-detail:hover{
+    background-color: #5AA3F8;
+    color: white;
+    border: none;
+    transition: 0.3;
+}
+
+.organizer{
+    color: #5AA3F8;
+    font-weight: 500;
+}
+
 .menu-sub li a{
     margin-top: 10px !important;
     padding: 10px 0 0 0 !important;
