@@ -18,8 +18,8 @@
                                 <span>
                                     <i class="{{ $item['icon'] }}"></i>
                                 </span>
-                                <span class="hide-menu">{{ $item['label'] }}</span>
-                                <span class="submenu-toggle-icon"></span>
+                                    <span class="hide-menu">{{ $item['label'] }}</span>
+                                    <span class="submenu-toggle-icon"></span>
                             </a>
                             <ul class="menu-sub">
                                 @foreach ($item['children'] as $child)
