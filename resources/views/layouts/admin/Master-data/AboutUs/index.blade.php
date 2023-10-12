@@ -6,14 +6,11 @@
     <h5 class="card-title fw-semibold mb-4">Add Description</h5>
     <div class="card">
         <div class="card-body">
-          <form method="POST" action="{{route('aboutus.CreateEdit') }}">
+            <form method="POST" action="{{ isset($abouts->id) ? route('aboutus.update', ['id' => $abouts->id]) : route('aboutus.create') }}">
             @csrf
-            {{-- @if(isset($abouts->id))
-              @method('PUT') <!-- Ini akan mengirimkan method PUT jika ada $abouts->id -->
-            @endif --}}
             <div class="mb-3">
               <label class="form-label">Description</label>
-              <input type="text" class="form-control" name="description" value="{{ old('description', $abouts->description ?? '') }}">
+              <textarea type="text" class="form-control" name="description">{{$abouts->description ?? ''}}</textarea>
               @error('description')
                 <span class="text-danger">{{ $message }}</span>
               @enderror

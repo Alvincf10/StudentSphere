@@ -15,46 +15,39 @@ class AboutUsController extends Controller
      */
     public function index(AboutUs $abouts, string $id=null)
     {
-        $abouts = AboutUs::find($id);
-        return view('layouts.admin.master-data.aboutus.index',compact('abouts'));
+
+            $abouts = AboutUs::find($id);
+            return view('layouts.admin.master-data.aboutus.index',compact('abouts'));
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function CreateOrEdit(Request $request, $id = null, AboutUs $abouts)
+    public function CreateOrEdit(Request $request, AboutUs $abouts, string $id=null)
 {
-    // $validator = Validator::make($request->all(), [
-    //     'description' => 'required'
-    // ]);
+    $validator = Validator::make($request->all(), [
+        'description' => 'required'
+    ]);
 
-    // if ($validator->fails()) {
-    //     return redirect()->route('aboutus', ['id' => $id])->withErrors($validator)->withInput();
-    // }
-    if ($id == null) {
-        // Jika $id tidak disediakan, buat data baru
-        $abouts->about_us = $request->input('description');
-        dd($abouts);
+    if ($validator->fails()) {
+        return redirect()->route('aboutus', ['id' => $id])->withErrors($validator)->withInput();
+    }
+    if($id == null){
+        $abouts->description = $request->input('description');
         $abouts->save();
-        $message = 'Data berhasil dibuat';
-    } else {
-        // Jika $id disediakan, cek apakah data dengan $id ada di database
-        $about = AboutUs::find($id);
 
-        if (!$about) {
-            // Jika data tidak ditemukan, kembali ke halaman dengan pesan error
-            return redirect()->route('aboutus')->with('error', 'Data tidak ditemukan');
-        }
+        $newlyCreatedId = $abouts->id;
+        return redirect()->route('aboutus.edit',['id'=>$newlyCreatedId])->with('success');
+    }else{
+        $abouts=AboutUs::find($id);
+        $abouts->description = $request->input('description');
+        $abouts->save();
 
-        // Jika data ditemukan, edit data yang ada
-        $message = 'Data berhasil diubah';
+    return redirect()->route('aboutus.edit',['id'=>$id])->with('success');
+
     }
 
-    $about->description = $request->input('description');
-    $about->save();
-
-    return redirect()->route('aboutus')->with('success', $message);
 }
 
-    
+
 }

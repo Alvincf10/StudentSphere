@@ -56,7 +56,9 @@ Route::group(['middleware' => ['auth']], function() {
 
     //master data
     Route::get('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
-    Route::post('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'CreateOrEdit'])->name('aboutus.CreateEdit');
+    Route::post('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'CreateOrEdit'])->name('aboutus.create');
+    Route::post('master-data/aboutus/{id}', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'CreateOrEdit'])->name('aboutus.update');
+    Route::get('master-data/aboutus/{id}', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus.edit');
 });
 
 
