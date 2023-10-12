@@ -1,6 +1,6 @@
 <header>
     <div class="header-area ">
-        <div id="sticky-header" class="main-header-area ">
+          <div id="sticky-header" class="main-header-area ">
             <div class="container-fluid p-0">
                 <div class="row align-items-center justify-content-between no-gutters">
                     <div class="col-xl-2 col-lg-2">
@@ -35,16 +35,3 @@
     </div>
 </header>
 
-
-<script>
-    window.addEventListener('scroll', function () {
-	var scroll = $(window).scrollTop();
-	if (scroll < 400) {
-    $("#sticky-header").removeClass("sticky");
-    $('#back-top').fadeIn(500);
-	} else {
-    $("#sticky-header").addClass("sticky");
-    $('#back-top').fadeIn(500);
-	}
-});
-    </script>
