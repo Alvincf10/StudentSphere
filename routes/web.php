@@ -15,10 +15,6 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::group(['middleware' => ['auth']], function() {
@@ -27,6 +23,11 @@ Route::group(['middleware' => ['auth']], function() {
 
     //event
     Route::get('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'index'])->name('event');
+    Route::get('management-event/event/create', [App\Http\Controllers\Admin\MasterData\EventController::class,'create'])->name('event.create');
+    Route::post('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'store'])->name('event.store');
+    Route::get('management-event/event/edit/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'edit'])->name('event.edit');
+    Route::put('management-event/event/update/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'update'])->name('event.update');
+    Route::delete('management-event/event/{id}', [App\Http\Controllers\Admin\MasterData\EventController::class,'destroy'])->name('event.delete');
 
     //location
     Route::get('management-event/location', [App\Http\Controllers\Admin\MasterData\LocationController::class,'index'])->name('location');
@@ -57,4 +58,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'index'])->name('aboutus');
     Route::post('master-data/aboutus', [App\Http\Controllers\Admin\MasterData\AboutUsController::class,'CreateOrEdit'])->name('aboutus.CreateEdit');
 });
+
+
+    Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
+    Route::get('/event', [App\Http\Controllers\front\FrontOfficeController::class,'allEvent'])->name('frontOffice');
+    Route::get('/event/event-detail/', [App\Http\Controllers\front\FrontOfficeController::class,'detailEvent'])->name('event.detail');
 
