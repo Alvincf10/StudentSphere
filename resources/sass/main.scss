@@ -9,6 +9,12 @@
     color: #5AA3F8;
 }
 
+// .main-header-area{
+//     position: fixed;
+//     width: 100%;
+//     z-index: 8;
+// }
+
 .nav-a{
     text-decoration: none !important;
     cursor: pointer;
@@ -81,23 +87,6 @@
 }
 
 // EVENT DETAIL
-ul {
-    list-style: none; /* Menghilangkan simbol default (biasanya titik) */
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    margin-left: 20px; /* Atur margin kiri untuk item daftar */
-    text-indent: -10px; /* Atur text indent negatif untuk mengimbangi margin kiri */
-}
-
-
-.container {
-    display: flex;
-    align-items: flex-start; /* Atur untuk menyejajarkan kotak-kotak ke atas */
-}
-
 .gambar-container {
     text-align: left;
     margin-left: 10px;
