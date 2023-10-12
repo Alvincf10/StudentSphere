@@ -9,6 +9,7 @@ use App\Models\Organizer;
 use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
@@ -40,6 +41,7 @@ class EventController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'event_name'=>'required',
+            'banner'=>'required|image',
             'description'=>'required',
             'startDate'=>'required',
             'endDate'=>'required',
@@ -52,7 +54,12 @@ class EventController extends Controller
         if($validator->fails()){
             return redirect()->route('event.create')->withErrors($validator)->withInput();
         }else{
+            $image = $request->file('banner');
+            $filename = time().'.'. $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/events',$image,$filename);
+
             $program ->program_name =$request->input('event_name');
+            $program -> banner = $filename;
             $program ->description =$request->input('description');
             $program ->start_date_program =$request->input('startDate');
             $program ->end_date_program =$request->input('endDate');

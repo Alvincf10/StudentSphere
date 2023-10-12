@@ -41,16 +41,19 @@
             </div>
             <div class="col-md-6">
                 <h2 class="header-title">Webinar Self Development</h2>
-                <strong><span>Organizer By </strong><span class="organizer">Binus</span></span>
+                <strong>
+                    <span>Organizer By </strong>
+                    <span class="organizer">Binus </span><br></span>
+                    <strong><span>Period Registrasion: 10 - okt 2023 - 15 - okt - 2023</span></strong>
                 <div class="group-detail-info mt-3">
-                    <div class="group-info d-flex ">
-                        <i class="ti ti-calendar-event mr-3 icon color-primary"></i><span class="description-event">21 Sep  2023</span><br>
-                    </div>
                     <div class="group-info d-flex mt-3">
                         <i class="ti ti-clock-hour-12 mr-3 color-primary icon"></i><span class="description-event">09.00 - 10.00</span><br>
                     </div>
                     <div class="group-info d-flex mt-3">
                         <i class="ti ti-map-pin mr-3 color-primary icon"></i><span class="description-event">Jln. anggrek no 12 Jakarta selatan</span>
+                    </div>
+                    <div class="group-info d-flex mt-3">
+                        <i class="ti ti-users mr-3 icon color-primary"></i><span class="description-event">10</span><br>
                     </div>
                 </div>
                 <div class="d-flex mt-4">

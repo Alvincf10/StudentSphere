@@ -19,7 +19,13 @@
                       <h6 class="fw-semibold mb-0">No</h6>
                     </th>
                     <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Banner</h6>
+                    </th>
+                    <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">Progam Name</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Description</h6>
                     </th>
                     <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">Qouta</h6>
@@ -49,7 +55,14 @@
                     <tr>
                       <td class="border-bottom-0">{{$programs->id}}</td>
                       <td class="border-bottom-0">
+                        <img class="img-fluid" src="{{asset('storage\events/'.$programs->banner)}}">
+                        {{-- <p class="mb-0 fw-normal">{{$programs->banner}}</p> --}}
+                      </td>
+                      <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{$programs->program_name}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->description}}</p>
                       </td>
                       <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{$programs->qouta}}</p>

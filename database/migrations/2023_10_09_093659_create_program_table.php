@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('programs', function (Blueprint $table) {
             $table->id();
+            $table->string('banner');
             $table->string('program_name');
             $table->string('description');
             $table->date('start_date_program');
