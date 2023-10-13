@@ -1,63 +1,32 @@
-<footer class="footer footer_bg_1">
-    <div class="circle_ball d-none d-lg-block">
-        <img src="img/banner/footer_ball.png" alt="">
+<footer>
+    <div class="content-footer header-section">
+        <div class="row p-4">
+            <div class="profile-footer col-lg-6 col-md-6 col-12 mb-5">
+                <img class="img-fluid mb-4" src="{{asset('image/logo.png')}}" width="10%">
+                <div class="description text-white">
+                    <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero assumenda velit </span>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-2 col-12 footer-menu mb-5">
+                <h5 class="footer-name">Links</h5>
+                <ul class="text-white">
+                    <li>Home</li>
+                    <li>Event</li>
+                    <li>About Us</li>
+                    <li>Check Transaction</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12 mb-5">
+                <h5 class="footer-name">Contact Us</h5>
+                <div class="address d-flex text-white">
+                    <i class="ti ti-direction me-3"></i>
+                    <p>Jl. Raya Kb. Jeruk No.27, RT.1/RW.9, Kemanggisan, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta 11530</p>
+                </div>
+                <div class="email d-flex text-white">
+                    <i class="ti ti-target me-3"></i>
+                    <p>binus@gmail.com</p>
+                </div>
+            </div>
+        </div>
     </div>
-        <div class="footer_top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-4 col-md-4 col-lg-4">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Follow Us
-                            </h3>
-                            <ul class="pl-0">
-                                <li><a class="nav-a" target="_blank" href="#">Facebook</a></li>
-                                <li><a class="nav-a" target="_blank" href="#">Twitter</a></li>
-                                <li><a class="nav-a" target="_blank" href="#">Instagram</a></li>
-                                <li><a class="nav-a" target="_blank" href="#">Youtube</a></li>
-                            </ul>
-
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 col-lg-4">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Links
-                            </h3>
-                            <ul class="pl-0">
-                                <li><a class="nav-a" target="_blank" href="schedule.html">Schedule</a></li>
-                                <li><a class="nav-a" target="_blank" href="speakers.html">Speakers</a></li>
-                                <li><a class="nav-a" target="_blank" href="contact.html">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-md-4 col-lg-4">
-                        <div class="footer_widget">
-                            <h3 class="footer_title">
-                                    Venue
-                            </h3>
-                            <p>
-                                Jl. Raya Kb. Jeruk No.27, RT.1/RW.9, Kemanggisan, Kec. Palmerah, Kota Jakarta Barat, Daerah Khusus Ibukota Jakarta <br>
-                                +62 82214243
-
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="copy-right_text">
-            <div class="container">
-                <div class="footer_border"></div>
-                <div class="row">
-                    <div class="col-xl-12">
-                        <p class="copy_right text-center">
-                            <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+</footer>
