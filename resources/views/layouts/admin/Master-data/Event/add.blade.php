@@ -6,13 +6,20 @@
     <h5 class="card-title fw-semibold mb-4">Add Event</h5>
     <div class="card">
         <div class="card-body">
-          <form method="POST" action="{{route('event.store')}}">
+          <form method="POST" action="{{route('event.store')}}" enctype="multipart/form-data">
             @csrf
             <div class="row">
                 <div class="mb-3 col-12">
-                  <label class="form-label">event Name</label>
+                  <label class="form-label"></label>Event Name</label>
                   <input type="text" class="form-control" name="event_name">
                   @error('event_name')
+                        <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="mb-3 col-12">
+                  <label class="form-label">Banner</label>
+                  <input type="file" class="form-control" name="banner">
+                  @error('banner')
                         <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>

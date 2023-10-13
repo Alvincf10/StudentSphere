@@ -1,36 +1,27 @@
 <header>
-    <div class="header-area ">
-        <div id="sticky-header" class="main-header-area ">
-            <div class="container-fluid p-0">
-                <div class="row align-items-center justify-content-between no-gutters">
-                    <div class="col-xl-2 col-lg-2">
-                        <div class="logo-img">
-                            <a href="index.html">
-                                <img src="{{asset('image/logo-horizontal.png')}}" width="100%">
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-xl-8 col-lg-8">
-                        <div class="main-menu  d-none d-lg-block">
-                            <nav>
-                                <ul id="navigation">
-                                    <li><a class="active nav-a" >home</a></li>
-                                    <li><a class="nav-a">ALL Event</a></li>
-                                    <li><a class="nav-a">About us</a></li>
-                                </ul>
-                            </nav>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-2 d-none d-lg-block">
-                        <div class="buy_ticket">
-                            <a href="#" class="boxed-btn-white nav-a">Book Event</a>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="mobile_menu d-block d-lg-none"></div>
-                    </div>
-                </div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom">
+        <div class="container">
+            <a class="navbar-brand" href="#">Navbar</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mx-auto"> <!-- Tengah -->
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">Home</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">Event</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="#">About Us</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control input search me-2" type="search" placeholder="Search Event" aria-label="Search">
+                    <button class="btn btn-outline-primary btn-search" type="submit">Search</button>
+                </form>
             </div>
         </div>
-    </div>
+    </nav>
 </header>

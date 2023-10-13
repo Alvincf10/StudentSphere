@@ -9,6 +9,15 @@
     color: #5AA3F8;
 }
 
+.main-header-area{
+    position: fixed;
+    width: 100%;
+    z-index: 8; 
+    margin-bottom: 10%;
+    background: linear-gradient(to right,rgb(255,185,0), rgb(177,33,179));;
+    padding-top: 1rem;
+}
+
 .nav-a{
     text-decoration: none !important;
     cursor: pointer;
@@ -24,7 +33,7 @@
 
 .header-title{
     font-weight: 700;
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 .btn-detail{
@@ -81,27 +90,11 @@
 }
 
 // EVENT DETAIL
-ul {
-    list-style: none; /* Menghilangkan simbol default (biasanya titik) */
-    margin: 0;
-    padding: 0;
-}
-
-ul li {
-    margin-left: 20px; /* Atur margin kiri untuk item daftar */
-    text-indent: -10px; /* Atur text indent negatif untuk mengimbangi margin kiri */
-}
-
-
-.container {
-    display: flex;
-    align-items: flex-start; /* Atur untuk menyejajarkan kotak-kotak ke atas */
-}
-
 .gambar-container {
     text-align: left;
     margin-left: 10px;
     margin-right: 10px;
+    margin-top: 8rem;
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
 }
 
@@ -119,16 +112,21 @@ ul li {
     margin-left: 20px;
     max-width: 500px; /* Atur lebar maksimum untuk kotak deskripsi */
     box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.1);
+    margin-top: 8rem;
 }
 
 .deskripsi-box {
     border-radius: 20px;
     text-align: left; /* Atur agar teks menjadi pusat di dalam kotak */
+    max-height: 35rem;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: black;
 }
 
 /* Tambahkan CSS untuk membuat isi teks di bawah kotak */
 .deskripsi-box p {
-    margin-top: 10px; /* Atur jarak atas teks dari kotak */
+    margin-top: 0; /* Atur jarak atas teks dari kotak */
 }
 
 .map-container {
