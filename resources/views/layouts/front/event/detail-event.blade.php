@@ -34,7 +34,7 @@
                     <div class="card-body mt-3" style="margin-left: 10px;">
                         
                         <strong>
-                            <h6 class="card-info mt-4 mb-4" style="text-align: center; font-weight: bold; position: relative;">
+                            <h6 class="card-info mb-4" style="text-align: center; font-weight: bold; position: relative;">
                                 <span style="text-decoration: none; color: #000;">More Information</span>
                                 <span style="position: absolute; width: 50%; left: 25%; bottom: -10px; border-bottom: 2px solid #F2542E;"></span>
                             </h6>
@@ -61,12 +61,12 @@
                             </h6>
                         </strong>
                         
-                        <div class="ticket-box mb-2">
+                        <div class="ticket-box mb-4">
                             <p>Date: </p>
                             <p class="date-flex" style="font-weight: bold; color:#000;">Friday, 27 OCT</p>
                         </div>
 
-                        <div class="ticket-box mb-2">
+                        <div class="ticket-box mb-4">
                             <p>Time: </p>
                             <p class="date-flex" style="font-weight: bold; color:#000;">6:00 PM</p>
                         </div>
@@ -210,5 +210,25 @@
         </div>
     </section>
 </div>
+
+<script>
+    const decrementButton = document.getElementById('decrement-button');
+    const incrementButton = document.getElementById('increment-button');
+    const ticketQuantity = document.getElementById('ticket-quantity');
+
+    let quantity = 1;
+
+    decrementButton.addEventListener('click', () => {
+        if (quantity > 1) {
+            quantity--;
+            ticketQuantity.textContent = quantity;
+        }
+    });
+
+    incrementButton.addEventListener('click', () => {
+        quantity++;
+        ticketQuantity.textContent = quantity;
+    });
+</script>
 
 @endsection
