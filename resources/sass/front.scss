@@ -73,6 +73,10 @@ body{
     color: #B1B0AF;
 }
 
+.color-title{
+    color: #595753;
+}
+
 .card-img-top{
     border-radius: 10px 10px 0 0;
 }
@@ -221,6 +225,122 @@ body{
 .footer-name{
     font-weight: 600;
     color: white;
+}
+
+// EVENT DETAIL
+
+.card-info{
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.purchase{
+    padding-top: 1rem;
+}
+
+.purchase h3{
+    font-weight: 600;
+}
+
+.line-title{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    bottom: -10px;
+    border-bottom: 2px solid #F2542E;
+}
+.map{
+    display: flex;
+    padding: 1rem;
+}
+
+.btn-direction{
+    font-size: 15px;
+    padding: 12px 75px;
+    font-weight: bold;
+}
+
+.map-details{
+    max-width: 25rem;
+}
+
+.map-details h1{
+    font-size: 30px !important;
+}
+
+.ticket-box p{
+    margin: 0;
+    color: #7a7a7a;
+    margin-right: 5%;
+}
+
+.txt-ticket p {
+    margin: 0;
+}
+
+.grand-total p{
+    color: #F03A11;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.label-purchase{
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    border: 1px solid #ced4da;
+    border-radius: 0.7rem 0 0 0.7rem;
+    background-color: #e9ecef;
+    opacity: 1;
+    border: none;
+}
+
+.form-group input{
+    padding: 0.75rem;
+    border-radius: 0 0.7rem 0.7rem 0;
+    border: none;
+}
+
+.personal-data .label-purchase{
+    padding: 1rem;
+    background-color: #FDE5E0;
+}
+
+.personal-data input{
+    background-color: #FDE5E0;
+}
+
+.personal-data input:focus{
+    color: #212529;
+    background-color: #FDE5E0 !important;
+    border-color: none !important;
+    outline: 0;
+    box-shadow: none !important;
+}
+.quantity-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    background-color: #fef3ef;
+    color: #f7a28f;
+}
+.btn-ticket{
+    width: 100%;
+}
+
+#ticket-quantity {
+    font-size: 18px;
+}
+
+
+#ticket-quantity {
+    margin: 0 10px;
 }
 
 @media screen and (max-width:1400px) {

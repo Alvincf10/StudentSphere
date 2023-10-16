@@ -12,7 +12,7 @@
 .main-header-area{
     position: fixed;
     width: 100%;
-    z-index: 8; 
+    z-index: 8;
     margin-bottom: 10%;
     background: linear-gradient(to right,rgb(255,185,0), rgb(177,33,179));;
     padding-top: 1rem;
@@ -89,54 +89,6 @@
     display: block;
 }
 
-// EVENT DETAIL
-.map h1{
-    margin-left: 10px;
-    font-weight: bold;
-}
 
-.ticket-box {
-    display: flex;
-    border: 1px solid #ccc;
-    padding: 5px;
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    width: 340px;
-    margin: 0 auto;
-}
-
-.ticket-box p{
-    margin: 0;
-    color: #7a7a7a;
-    margin-right: 5%;
-}
-
-.txt-ticket p {
-    margin: 0; 
-}
-
-.txt-ticket {
-    display: flex;
-    margin-left: 15px;
-}
-
-.quantity-button {
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background-color: #ccc;
-    border: none;
-    cursor: pointer;
-    margin: 0 5px;
-}
-
-#ticket-quantity {
-    font-size: 18px;
-}
-
-
-#ticket-quantity {
-    margin: 0 10px;
-}
 
 
