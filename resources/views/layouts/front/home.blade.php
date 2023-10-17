@@ -77,33 +77,35 @@
                 <span class="color-primary cursor-pointer">See All</span>
             </div>
             <div class="row mt-4">
-                @foreach ($program as $programs)
+                @foreach ($programAvailable->take(4) as $programs)
                 <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
-                    <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;" >
-                        <div class="banner-event-card">
-                            <img src="{{asset('storage\events/'.$programs->banner)}}" class="card-img-top">
-                        </div>
-                        <div class="card-time">
-                            <div class="time">
-                                <i class="ti ti-calendar"></i>
-                                <span>{{$programs->date_program}}</span>
+                    <a href="{{route('event.detail',['id'=>$programs->id])}}">
+                        <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
+                            <div class="banner-event-card">
+                                <img src="{{asset('storage\events/'.$programs->banner)}}" class="card-img-top">
+                            </div>
+                            <div class="card-time">
+                                <div class="time">
+                                    <i class="ti ti-calendar"></i>
+                                    <span>{{$programs->date_program}}</span>
+                                </div>
+                            </div>
+                            <div class="card-body mt-3">
+                              <span class="card-category color-secondary text-uppercase">{{$programs->category->category_name}}</span>
+                              <strong><h5 class="card-title mt-2">{{$programs->program_name}}</h5></strong>
+                              <div class="group-information mt-4">
+                                <div class="location fs-15 mt-3">
+                                    <i class="ti ti-location-pin me-2"></i>
+                                    <span>{{$programs->location->location_name}}</span>
+                                </div>
+                                <div class="ticket mt-2 fs-15 mt-3">
+                                    <i class="ti ti-ticket me-2"></i>
+                                    <span class="color-primary">{{$programs->price == 0 ? 'Free' : 'Rp.' . $programs->price}}</span>
+                                </div>
+                              </div>
                             </div>
                         </div>
-                        <div class="card-body mt-3">
-                          <span class="card-category color-secondary text-uppercase">{{$programs->category->category_name}}</span>
-                          <strong><h5 class="card-title mt-2">{{$programs->program_name}}</h5></strong>
-                          <div class="group-information mt-4">
-                            <div class="location fs-15 mt-3">
-                                <i class="ti ti-location-pin me-2"></i>
-                                <span>{{$programs->location->location_name}}</span>
-                            </div>
-                            <div class="ticket mt-2 fs-15 mt-3">
-                                <i class="ti ti-ticket me-2"></i>
-                                <span class="color-primary">{{$programs->price == 0 ? 'Free' : 'Rp.' . $programs->price}}</span>
-                            </div>
-                          </div>
-                        </div>
-                    </div>
+                    </a>
                 </div>
                 @endforeach
             </div>
@@ -136,7 +138,7 @@
                 <span class="color-primary cursor-pointer">See All</span>
             </div>
             <div class="row mt-4">
-                @foreach ($program as $programs )
+                @foreach ($programSold->take(4) as $programs )
                 <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
                     <div class="card card-pervious me-4 mb-4" style="width: 20rem;">
                         <div class="image-container" style="position: relative;">

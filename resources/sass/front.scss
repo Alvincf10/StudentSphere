@@ -10,6 +10,16 @@ body{
     cursor: pointer;
 }
 
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: black;
+
+}
+
 .text-white{
     color: white;
 }
@@ -298,6 +308,11 @@ body{
     font-size: 12px;
     font-weight: 790;
     color: #F2542E;
+}
+
+.detail-price p {
+    font-size: 15px;
+    font-weight: bolder;
 }
 
 .label-purchase{

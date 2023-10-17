@@ -16,7 +16,7 @@
                         <div class="map">
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.6262746699147!2d106.78878891571958!3d-6.226394285474659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f82f9ce6f0a5%3A0x6822a3d87a02d2d1!2sUniversity%20of%20Indonesia!5e0!3m2!1sen!2sid!4v1610977185972!5m2!1sen!2sid" width="35%" height="250" style="border:10; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
                             <div class="map-details ms-4">
-                                <strong><h1 class="card-title fs-">ThirumaLi-Dabzee Show With DJ Night</h1></strong><br>
+                                <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
                                 <div class="grup-map mt-2 mb-2">
                                     <p>Hilit Business Park</p><br>
                                     <p>Dabzee and ThirumaLi team up for a new immersive musical</p>
@@ -70,9 +70,9 @@
                             </div>
                         </div>
                         <div class="detail-price mb-2">
-                            <p>Rp. 20.000 / Ticket</p>
+                            <p>{{$programDetail->price == 0 ? 'Free' : 'Rp.' . $programDetail->price . '/ Ticket'}} </p>
                         </div>
-                        
+
                         <div class="personal-data mt-4">
                             <div class="title">
                                 <p class="fw-bolder">Fill Your Personal Data</p>
@@ -92,122 +92,13 @@
                                 </div>
                             </div>
 
-                            
+
                         </div>
-                        
+
                     </div>
 
                     <div class="group-ticket p-4">
                         <button class="btn btn-primary btn-lg btn-ticket">Get Ticket</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="event header-section container">
-        <div class="d-flex justify-content-between">
-            <h3 class="header-name">Other Event You May Like</h3>
-            <span class="color-primary cursor-pointer">See All</span>
-        </div>
-        <div class="row mt-4">
-            <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
-                <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
-                    <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img-top" alt="...">
-                    <div class="card-time">
-                        <div class="time">
-                            <i class="ti ti-calendar"></i>
-                            <span>Tue, Oct 21</span>
-                        </div>
-                    </div>
-                    <div class="card-body mt-3">
-                      <span class="card-category color-secondary ">CONFERENCE</span>
-                      <strong><h5 class="card-title mt-2">Revolusi Bisnis Berkelanjutan: Menggabungkan Profit dan Planet</h5></strong>
-                      <div class="group-information mt-4">
-                        <div class="location fs-15 mt-3">
-                            <i class="ti ti-location-pin me-2"></i>
-                            <span>Jakarta</span>
-                        </div>
-                        <div class="ticket mt-2 fs-15 mt-3">
-                            <i class="ti ti-ticket me-2"></i>
-                            <span class="color-primary">Free</span>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
-                <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
-                    <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img-top" alt="...">
-                    <div class="card-time">
-                        <div class="time">
-                            <i class="ti ti-calendar"></i>
-                            <span>Tue, Oct 21</span>
-                        </div>
-                    </div>
-                    <div class="card-body mt-3">
-                      <span class="card-category color-secondary ">CONFERENCE</span>
-                      <strong><h5 class="card-title mt-2">Revolusi Bisnis Berkelanjutan: Menggabungkan Profit dan Planet</h5></strong>
-                      <div class="group-information mt-4">
-                        <div class="location fs-15 mt-3">
-                            <i class="ti ti-location-pin me-2"></i>
-                            <span>Jakarta</span>
-                        </div>
-                        <div class="ticket mt-2 fs-15 mt-3">
-                            <i class="ti ti-ticket me-2"></i>
-                            <span class="color-primary">Free</span>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
-                <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
-                    <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img-top" alt="...">
-                    <div class="card-time">
-                        <div class="time">
-                            <i class="ti ti-calendar"></i>
-                            <span>Tue, Oct 21</span>
-                        </div>
-                    </div>
-                    <div class="card-body mt-3">
-                      <span class="card-category color-secondary ">CONFERENCE</span>
-                      <strong><h5 class="card-title mt-2">Revolusi Bisnis Berkelanjutan: Menggabungkan Profit dan Planet</h5></strong>
-                      <div class="group-information mt-4">
-                        <div class="location fs-15 mt-3">
-                            <i class="ti ti-location-pin me-2"></i>
-                            <span>Jakarta</span>
-                        </div>
-                        <div class="ticket mt-2 fs-15 mt-3">
-                            <i class="ti ti-ticket me-2"></i>
-                            <span class="color-primary">Free</span>
-                        </div>
-                      </div>
-                    </div>
-                </div>
-            </div>
-            <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
-                <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
-                    <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img-top" alt="...">
-                    <div class="card-time">
-                        <div class="time">
-                            <i class="ti ti-calendar"></i>
-                            <span>Tue, Oct 21</span>
-                        </div>
-                    </div>
-                    <div class="card-body mt-3">
-                      <span class="card-category color-secondary ">CONFERENCE</span>
-                      <strong><h5 class="card-title mt-2">Revolusi Bisnis Berkelanjutan: Menggabungkan Profit dan Planet</h5></strong>
-                      <div class="group-information mt-4">
-                        <div class="location fs-15 mt-3">
-                            <i class="ti ti-location-pin me-2"></i>
-                            <span>Jakarta</span>
-                        </div>
-                        <div class="ticket mt-2 fs-15 mt-3">
-                            <i class="ti ti-ticket me-2"></i>
-                            <span class="color-primary">Free</span>
-                        </div>
-                      </div>
                     </div>
                 </div>
             </div>
