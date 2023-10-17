@@ -43,6 +43,8 @@ class EventController extends Controller
             'event_name'=>'required',
             'banner'=>'required|image',
             'description'=>'required',
+            'price'=>'required',
+            'eventDate'=>'required',
             'startDate'=>'required',
             'endDate'=>'required',
             'qouta'=>'required',
@@ -61,6 +63,8 @@ class EventController extends Controller
             $program ->program_name =$request->input('event_name');
             $program -> banner = $filename;
             $program ->description =$request->input('description');
+            $program ->price =$request->input('price');
+            $program ->date_program =$request->input('eventDate');
             $program ->start_date_program =$request->input('startDate');
             $program ->end_date_program =$request->input('endDate');
             $program ->qouta =$request->input('qouta');
@@ -102,6 +106,8 @@ class EventController extends Controller
         $validator = Validator::make($request->all(),[
             'event_name'=>'required',
             'description'=>'required',
+            'price'=>'required',
+            'eventDate'=>'required',
             'startDate'=>'required',
             'endDate'=>'required',
             'qouta'=>'required',
@@ -117,6 +123,8 @@ class EventController extends Controller
 
             $program ->program_name =$request->input('event_name');
             $program ->description =$request->input('description');
+            $program ->price =$request->input('price');
+            $program ->date_program =$request->input('eventDate');
             $program ->start_date_program =$request->input('startDate');
             $program ->end_date_program =$request->input('endDate');
             $program ->qouta =$request->input('qouta');

@@ -31,10 +31,16 @@
                       <h6 class="fw-semibold mb-0">Qouta</h6>
                     </th>
                     <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Price</h6>
+                    </th>
+                    <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">Start Date</h6>
                     </th>
                     <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">End Date</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">KickoFf Event</h6>
                     </th>
                     <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">Location</h6>
@@ -68,10 +74,16 @@
                         <p class="mb-0 fw-normal">{{$programs->qouta}}</p>
                       </td>
                       <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$programs->price}}</p>
+                      </td>
+                      <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->start_date_program))}}</p>
                       </td>
                       <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->end_date_program))}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->date_program))}}</p>
                       </td>
                       <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{$programs->location->location_name}}</p>

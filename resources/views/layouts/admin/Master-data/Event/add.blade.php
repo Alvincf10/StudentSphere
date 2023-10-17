@@ -31,6 +31,23 @@
                   @enderror
                 </div>
                 <div class="mb-3 col-6">
+                  <label class="form-label">Price</label>
+                  <div class="input-price d-flex align-items-center">
+                      <span class="title-currency">Rp.</span>
+                      <input type="number" class="form-control" name="price">
+                  </div>
+                  @error('price')
+                        <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="mb-3 col-6">
+                  <label class="form-label">Kickoff Event</label>
+                  <input type="date" class="form-control" name="eventDate">
+                  @error('eventDate')
+                        <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="mb-3 col-6">
                   <label class="form-label">Start Date</label>
                   <input type="date" class="form-control" name="startDate">
                   @error('startDate')

@@ -89,6 +89,24 @@
     display: block;
 }
 
+.title-currency{
+    display: block;
+    padding: 8px 16px;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #5A6A85;
+    background-color: transparent;
+    background-clip: padding-box;
+    border: var(--bs-border-width) solid #DFE5EF;
+    border-radius: 7px 0 0 7px;
+    border-right: none;
+    font-weight: bolder;
+}
 
+.input-price input{
+    border-radius: 0 7px 7px 0;
+    border-left: none;
+}
 
 

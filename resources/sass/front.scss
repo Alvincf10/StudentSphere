@@ -187,6 +187,15 @@ body{
     margin-left: 7rem;
 }
 
+.banner-event-card{
+    height: 215px;
+}
+
+.banner-event-card img{
+    object-fit: cover;
+    height: 100%;
+}
+
 //event pervious
 .image-container {
     position: relative;
