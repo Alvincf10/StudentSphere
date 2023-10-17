@@ -71,7 +71,7 @@
                         </div>
                         <div class="personal-data mt-4">
                             <div class="title">
-                                <h6 class="fw-bolder color-primary">Fill Your Personal Data</h6>
+                                <p class="fw-bolder">Fill Your Personal Data</p>
                             </div>
                             <div class="form-group d-flex align-items-center">
                                 <i class="ti ti-mail label-purchase"></i>
