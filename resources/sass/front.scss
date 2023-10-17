@@ -288,10 +288,16 @@ body{
     margin: 0;
 }
 
-.grand-total p{
+.grand-total, price p{
     color: #F03A11;
     font-size: 20px;
     font-weight: bolder;
+}
+
+.detail-price{
+    font-size: 12px;
+    font-weight: 790;
+    color: #F2542E;
 }
 
 .label-purchase{

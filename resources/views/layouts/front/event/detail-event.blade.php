@@ -57,9 +57,9 @@
                             <span class="label-purchase">Time:</span>
                             <input type="text" class="form-control" disabled value="06.00 WIB">
                         </div>
-                        <div class="txt-ticket d-flex align-items-center mt-4 mb-2">
+                        <div class="txt-ticket d-flex align-items-center justify-content-end mt-4">
                             <p>Tickets: </p>
-                            <div class="btn-ticket">
+                            <div class="btn-ticket d-flex align-items-center justify-content-end">
                                 <button class="quantity-button" id="decrement-button" >
                                     <i class="ti ti-minus"></i>
                                 </button>
@@ -69,6 +69,10 @@
                                 </button>
                             </div>
                         </div>
+                        <div class="detail-price mb-2">
+                            <p>Rp. 20.000 / Ticket</p>
+                        </div>
+                        
                         <div class="personal-data mt-4">
                             <div class="title">
                                 <p class="fw-bolder">Fill Your Personal Data</p>
@@ -81,13 +85,16 @@
                                 <i class="ti ti-mail label-purchase"></i>
                                 <input type="text" class="form-control"  value="Confirm Email">
                             </div>
-                        </div>
-                        <div class="grand-total mt-4 mb-2">
-                            <p class="m-0">Total Price</p>
-                            <div class="price">
-                                <p>Rp.20.000</p>
+                            <div class="grand-total mt-4 mb-2">
+                                <p class="m-0">Total Price</p>
+                                <div class="price" id="total-price">
+                                    <p>Free</p>
+                                </div>
                             </div>
+
+                            
                         </div>
+                        
                     </div>
 
                     <div class="group-ticket p-4">
@@ -211,6 +218,8 @@
     const decrementButton = document.getElementById('decrement-button');
     const incrementButton = document.getElementById('increment-button');
     const ticketQuantity = document.getElementById('ticket-quantity');
+    const totalPrice = document.getElementById('total-price');
+    const ticketPrice = 0;
 
     let quantity = 1;
 
@@ -218,13 +227,33 @@
         if (quantity > 1) {
             quantity--;
             ticketQuantity.textContent = quantity;
+            updateTotalPrice();
         }
     });
 
     incrementButton.addEventListener('click', () => {
         quantity++;
         ticketQuantity.textContent = quantity;
+        updateTotalPrice();
     });
+
+    function updateTotalPrice() {
+    const total = quantity * ticketPrice;
+    totalPrice.textContent = `Rp.${total.toLocaleString()}`;
+    const isFree = (quantity > 1);
+    let price = 20000 * quantity;
+
+    if (isFree) {
+        price = 0;
+    }
+
+    ticketPrice.textContent = `Rp.${price.toLocaleString()}`;
+    ticketText.textContent = price === 0 ? 'Free' : 'Not Free';
+    }
+    updateTotalPrice();
 </script>
+
+
+
 
 @endsection
