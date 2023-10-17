@@ -40,7 +40,7 @@
                       <h6 class="fw-semibold mb-0">End Date</h6>
                     </th>
                     <th class="border-bottom-0">
-                      <h6 class="fw-semibold mb-0">KickoFf Event</h6>
+                      <h6 class="fw-semibold mb-0">Kickoff Event</h6>
                     </th>
                     <th class="border-bottom-0">
                       <h6 class="fw-semibold mb-0">Location</h6>

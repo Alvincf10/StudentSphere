@@ -10,7 +10,7 @@
     <h5 class="card-title fw-semibold mb-4">Add Event</h5>
     <div class="card">
         <div class="card-body">
-          <form method="POST" action="{{route('event.update',['id'=>$program->id])}}">
+          <form method="POST" action="{{route('event.update',['id'=>$program->id])}}" enctype="multipart/form-data">
             @csrf
             @method('put')
             <div class="row">
@@ -18,6 +18,13 @@
                   <label class="form-label">event Name</label>
                   <input type="text" class="form-control" name="event_name" value="{{$program->program_name}}">
                   @error('event_name')
+                        <span class="text-danger">{{ $message }}</span>
+                  @enderror
+                </div>
+                <div class="mb-3 col-12">
+                  <label class="form-label">Banner</label>
+                  <input type="file" class="form-control" name="banner">
+                  @error('banner')
                         <span class="text-danger">{{ $message }}</span>
                   @enderror
                 </div>

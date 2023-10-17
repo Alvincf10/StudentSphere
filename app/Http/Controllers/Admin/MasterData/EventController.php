@@ -105,6 +105,7 @@ class EventController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'event_name'=>'required',
+            'banner' => 'required|image',
             'description'=>'required',
             'price'=>'required',
             'eventDate'=>'required',
@@ -119,9 +120,14 @@ class EventController extends Controller
         if($validator->fails()){
             return redirect()->route('event.create')->withErrors($validator)->withInput();
         }else{
+            $image = $request->file('banner');
+            $filename = time().'.'. $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/events',$image,$filename);
+
             $program = Program::find($id);
 
             $program ->program_name =$request->input('event_name');
+            $program -> banner= $filename;
             $program ->description =$request->input('description');
             $program ->price =$request->input('price');
             $program ->date_program =$request->input('eventDate');
