@@ -10,7 +10,7 @@
                         <div class="map">
                             <div id='map' style='width: 100%; height: 300px; border-radius:10px' data-api-key="{{ config('app.MAPBOX_TOKEN') }}"></div>
                             <div class="row mt-3">
-                                <div class="col-md-8 col-12">
+                                <div class="col-lg-8 col-md-8 col-12">
                                     <div class="map-details ms-4">
                                         <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
                                         <div class="grup-map mb-2">
@@ -19,7 +19,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-md-4 col-12 d-flex align-items-center">
+                                <div class="col-lg-4 col-md-4 col-12 d-flex align-items-center">
                                     <div class="group-direction ms-4">
                                         <a href="https://www.google.com/maps/dir/{{$programDetail->location->latitude}},{{$programDetail->location->longitude}}" target="_blank" class="btn btn-outline-primary btn-direction">Get Direction</a>
                                     </div>
