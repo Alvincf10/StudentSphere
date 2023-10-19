@@ -5,10 +5,10 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Carbon\Carbon;
-use Illuminate\Http\Request;
 
 class FrontOfficeController extends Controller
 {
+
     public function index(){
         $program = Program::with('organizer','location','category')->get();
 
@@ -23,8 +23,9 @@ class FrontOfficeController extends Controller
     }
 
     public function detailEvent(string $id){
-
         $programDetail = Program::find($id);
         return view('layouts.front.event.detail-event',compact('programDetail'));
     }
+
+
 }

@@ -42,7 +42,7 @@
                 </div>
                 <div class="mb-3 col-6">
                   <label class="form-label">Kickoff Event</label>
-                  <input type="date" class="form-control" name="eventDate">
+                  <input type="datetime-local" class="form-control" name="eventDate">
                   @error('eventDate')
                         <span class="text-danger">{{ $message }}</span>
                   @enderror

@@ -15,10 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string('banner');
             $table->string('program_name');
-            $table->string('description');
+            $table->longText('description');
             $table->date('start_date_program');
             $table->date('end_date_program');
-            $table->date('date_program');
+            $table->DATETIME('date_program');
             $table->string('qouta');
             $table->string('price');
             $table->string('id_organizer');

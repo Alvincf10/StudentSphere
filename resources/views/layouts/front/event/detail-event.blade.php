@@ -2,31 +2,27 @@
 
 @section('content')
 
-    <div class="container-fluid mt-4">
-        <div class="ds-banner">
-            <img class="img-fluid" src="https://img.freepik.com/free-vector/flat-design-business-workshop-twitch-banner_23-2149410630.jpg?w=1380&t=st=1697335639~exp=1697336239~hmac=47dc4d71b9b5634fbe75a03abc0a49d30fb8d3f4d0e24109ae343a97d396e159" alt="" srcset="">
-        </div>
-    </div>
-
     <section class="info-event container">
         <div class="row mt-4">
             <div class="col-md-7">
                 <div class="card mb-4">
                     <div class="card-map mt-4">
                         <div class="map">
-                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.6262746699147!2d106.78878891571958!3d-6.226394285474659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f82f9ce6f0a5%3A0x6822a3d87a02d2d1!2sUniversity%20of%20Indonesia!5e0!3m2!1sen!2sid!4v1610977185972!5m2!1sen!2sid" width="35%" height="250" style="border:10; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
-                            <div class="map-details ms-4">
-                                <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
-                                <div class="grup-map mt-2 mb-2">
-                                    <p>Hilit Business Park</p><br>
-                                    <p>Dabzee and ThirumaLi team up for a new immersive musical</p>
+                            <div id='map' style='width: 400px; height: 300px;' data-api-key="{{ config('app.MAPBOX_TOKEN') }}"></div>
+                            <div class="d-flex mt-3">
+                                <div class="map-details ms-4">
+                                    <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
+                                    <div class="grup-map mb-2">
+                                        <p class="mb-0">Organizer: <strong>{{$programDetail->organizer->name_organizer}}</strong></p>
+                                        <p>Kouta: <strong> {{$programDetail->qouta}}</strong></p>
+                                    </div>
+                                </div>
+                                <div class="group-direction d-flex align-items-center ms-4">
+                                    <button class="btn btn-outline-primary btn-direction">Get Direction</button>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="group-direction ms-3">
-                            <button class="btn btn-outline-primary btn-direction">Get Direction</button>
-                        </div>
                     </div>
 
                     <div class="card-body mt-3 ms-3">
@@ -35,9 +31,8 @@
                             <span class="line-title"></span>
                         </div>
                         <strong><h5 class="card-title mt-4">About Event</h5></strong>
-                        <div class="group-information mt-4">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, inventore. Ipsum cum suscipit, eligendi similique, obcaecati adipisci ratione commodi cumque necessitatibus quaerat error incidunt voluptate facere tenetur assumenda quam dolorum.</p> <br>
-                            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem hic facilis suscipit aliquam exercitationem molestias officia consectetur maxime, deserunt laboriosam iste corrupti nisi voluptates aliquid illum labore tempora velit modi? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quidem hic facilis suscipit aliquam exercitationem molestias officia consectetur maxime, deserunt laboriosam iste corrupti nisi voluptates aliquid illum labore tempora velit modi?</p>
+                        <div class="group-information mt-4 me-3">
+                            <p class="text-justify">{{$programDetail->description}}</p> <br>
                         </div>
                     </div>
                 </div>
@@ -51,11 +46,11 @@
                     <div class="card-body">
                         <div class="form-group d-flex align-items-center">
                             <span class="label-purchase">Date:</span>
-                            <input type="text" class="form-control" disabled value="Fri, 25 2022">
+                            <input type="text" class="form-control" disabled value="{{date('d-M-Y',strtotime($programDetail->date_program))}}">
                         </div>
                         <div class="form-group d-flex align-items-center mt-3">
                             <span class="label-purchase">Time:</span>
-                            <input type="text" class="form-control" disabled value="06.00 WIB">
+                            <input type="text" class="form-control" disabled value="{{date('h:i A', strtotime($programDetail->date_program)) }}">
                         </div>
                         <div class="txt-ticket d-flex align-items-center justify-content-end mt-4">
                             <p>Tickets: </p>
@@ -70,7 +65,7 @@
                             </div>
                         </div>
                         <div class="detail-price mb-2">
-                            <p>{{$programDetail->price == 0 ? 'Free' : 'Rp.' . $programDetail->price . '/ Ticket'}} </p>
+                            <p id="ticket-price">{{$programDetail->price == 0 ? 'Free' : currency_IDR($programDetail->price) . '/ Ticket'}} </p>
                         </div>
 
                         <div class="personal-data mt-4">
@@ -91,12 +86,8 @@
                                     <p>Free</p>
                                 </div>
                             </div>
-
-
                         </div>
-
                     </div>
-
                     <div class="group-ticket p-4">
                         <button class="btn btn-primary btn-lg btn-ticket">Get Ticket</button>
                     </div>
@@ -106,11 +97,26 @@
     </section>
 
 <script>
+    //maps
+    const mapApiKey = document.getElementById('map').getAttribute('data-api-key');
+    mapboxgl.accessToken = mapApiKey;
+    document.addEventListener('DOMContentLoaded', function () {
+        const map = new mapboxgl.Map({
+        container: 'map',
+        style: 'mapbox://styles/mapbox/streets-v11',
+        center: [106.816666, -6.200000], // Koordinat pusat
+        zoom: 12 // Level zoom
+    });
+      })
+
+
     const decrementButton = document.getElementById('decrement-button');
     const incrementButton = document.getElementById('increment-button');
     const ticketQuantity = document.getElementById('ticket-quantity');
     const totalPrice = document.getElementById('total-price');
-    const ticketPrice = 0;
+    const ticketPrice = {{ $programDetail->price }}
+
+
 
     let quantity = 1;
 
@@ -132,16 +138,19 @@
     const total = quantity * ticketPrice;
     totalPrice.textContent = `Rp.${total.toLocaleString()}`;
     const isFree = (quantity > 1);
-    let price = 20000 * quantity;
+    let price = ticketPrice * quantity;
 
     if (isFree) {
         price = 0;
     }
 
-    ticketPrice.textContent = `Rp.${price.toLocaleString()}`;
-    ticketText.textContent = price === 0 ? 'Free' : 'Not Free';
+    ticketPrice.textContent = `Rp. ${ price.toLocaleString()}`;
     }
     updateTotalPrice();
+
+
+
+
 </script>
 
 

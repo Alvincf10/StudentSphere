@@ -83,7 +83,7 @@
                         <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->end_date_program))}}</p>
                       </td>
                       <td class="border-bottom-0">
-                        <p class="mb-0 fw-normal">{{date('d-M-Y',strtotime($programs->date_program))}}</p>
+                        <p class="mb-0 fw-normal">{{date('d-M-Y h:i A',strtotime($programs->date_program))}}</p>
                       </td>
                       <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{$programs->location->location_name}}</p>

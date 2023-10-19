@@ -10,6 +10,10 @@ body{
     cursor: pointer;
 }
 
+.text-justify{
+    text-align: justify;
+}
+
 a{
     color: black;
     text-decoration: none;
@@ -270,18 +274,17 @@ a:hover{
     border-bottom: 2px solid #F2542E;
 }
 .map{
-    display: flex;
     padding: 1rem;
 }
 
 .btn-direction{
     font-size: 15px;
-    padding: 12px 75px;
+    padding: 10px 60px;
     font-weight: bold;
 }
 
 .map-details{
-    max-width: 25rem;
+    max-width: 27rem;
 }
 
 .map-details h1{

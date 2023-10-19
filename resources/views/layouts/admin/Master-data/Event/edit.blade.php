@@ -7,7 +7,7 @@
 @section('content')
 
 <div class="container-fluid">
-    <h5 class="card-title fw-semibold mb-4">Add Event</h5>
+    <h5 class="card-title fw-semibold mb-4">Edit Event</h5>
     <div class="card">
         <div class="card-body">
           <form method="POST" action="{{route('event.update',['id'=>$program->id])}}" enctype="multipart/form-data">
@@ -47,7 +47,7 @@
                   </div>
                 <div class="mb-3 col-6">
                     <label class="form-label">Kickoff Event</label>
-                    <input type="date" class="form-control" name="eventDate" value="{{$program->date_program}}">
+                    <input type="datetime-local" class="form-control" name="eventDate" value="{{$program->date_program}}">
                     @error('eventDate')
                           <span class="text-danger">{{ $message }}</span>
                     @enderror
