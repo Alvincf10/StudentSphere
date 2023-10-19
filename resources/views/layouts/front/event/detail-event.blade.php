@@ -17,7 +17,7 @@
                             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.6262746699147!2d106.78878891571958!3d-6.226394285474659!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f82f9ce6f0a5%3A0x6822a3d87a02d2d1!2sUniversity%20of%20Indonesia!5e0!3m2!1sen!2sid!4v1610977185972!5m2!1sen!2sid" width="35%" height="250" style="border:10; border-radius: 10px;" allowfullscreen="" loading="lazy"></iframe>
                             <div class="map-details ms-4">
                                 <strong><h1 class="card-title fs-">ThirumaLi-Dabzee Show With DJ Night</h1></strong><br>
-                                <div class="grup-map mt-2 mb-2">
+                                <div class="grup-map mt-2 mb-2">    
                                     <p>Hilit Business Park</p><br>
                                     <p>Dabzee and ThirumaLi team up for a new immersive musical</p>
                                 </div>

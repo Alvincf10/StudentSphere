@@ -76,7 +76,7 @@
                 <h3 class="header-name">Event</h3>
                 <span class="color-primary cursor-pointer">See All</span>
             </div>
-            <div class="row mt-4">
+            <div class="row mt-3">
                 <div class="card-event col-lg-3 col-md-6 col-sm-6 col-6">
                     <div class="card me-4 mb-4 cursor-pointer" style="width: 20rem;">
                         <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img-top" alt="...">
