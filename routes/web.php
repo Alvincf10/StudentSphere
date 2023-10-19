@@ -65,4 +65,4 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
     Route::get('/event', [App\Http\Controllers\front\FrontOfficeController::class,'allEvent'])->name('frontOffice');
     Route::get('/event/event-detail/{id}', [App\Http\Controllers\front\FrontOfficeController::class,'detailEvent'])->name('event.detail');
-
+    Route::get('/event/event-detail/purchase', [App\Http\Controllers\front\FrontOfficeController::class,'purchase'])->name('purchase');

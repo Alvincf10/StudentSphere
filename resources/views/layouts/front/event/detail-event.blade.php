@@ -84,6 +84,29 @@
                                 <i class="ti ti-mail label-purchase"></i>
                                 <input type="text" class="form-control"  value="Confirm Email">
                             </div>
+
+                            <div class="form-group d-flex align-items-center mt-3">
+                                <input class="mr-2" type="checkbox" id="terms-checkbox">
+                                <label for="terms-checkbox" id="terms-label">Saya Menyetujui <a href="#" id="show-terms-link">Syarat dan Ketentuan</a></label>
+                            </div>
+                            
+                            <div id="terms-popup" class="popup" style="display: none;">
+                                <div class="popup-content align-items-center">
+                                    <div class="popup-header mb-2">
+                                        <h3>Syarat dan Ketentuan</h3>
+                                    </div>
+                                    <div class="popup-body mt-4">
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt animi molestiae debitis aperiam! Beatae, vero. Dolores commodi sint repudiandae, fugit pariatur ipsum ut vitae perferendis laudantium soluta aperiam nesciunt rerum.</p> <br>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fuga vero eligendi laborum obcaecati est aliquam, cumque rem ut dolorem illo dolore facere sequi dolores error aperiam, natus nihil id!</p> <br>
+                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, odio! Porro nihil et est! Enim, aspernatur quas autem rerum reprehenderit quasi culpa consequatur ex vel repellat. Doloremque alias hic nihil?</p>
+                                    </div>
+                                    
+                                    <button id="close-terms-popup">
+                                        <i class="ti ti-close"></i>
+                                    </button>
+                                </div>
+                            </div>
+
                             <div class="grand-total mt-4 mb-2">
                                 <p class="m-0">Total Price</p>
                                 <div class="price" id="total-price">
@@ -93,7 +116,7 @@
                         </div>
                     </div>
                     <div class="group-ticket p-4">
-                        <button class="btn btn-primary btn-lg btn-ticket">Get Ticket</button>
+                        <a href="{{ route('purchase') }}" class="btn btn-primary btn-lg btn-ticket">Get Ticket</a>
                     </div>
                 </div>
             </div>
@@ -158,8 +181,27 @@
     updateTotalPrice();
 
 
+</script>
 
+<script>
+    const showTermsLink = document.getElementById('show-terms-link');
+    const termsPopup = document.getElementById('terms-popup');
+    const closeTermsPopup = document.getElementById('close-terms-popup');
 
+    showTermsLink.addEventListener('click', (event) => {
+        event.preventDefault();
+        termsPopup.style.display = 'block';
+    });
+
+    closeTermsPopup.addEventListener('click', () => {
+        termsPopup.style.display = 'none';
+    });
+
+    termsPopup.addEventListener('click', (event) => {
+        if (event.target === termsPopup) {
+            termsPopup.style.display = 'none';
+        }
+    });
 </script>
 
 

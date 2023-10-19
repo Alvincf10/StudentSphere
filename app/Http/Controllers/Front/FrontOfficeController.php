@@ -28,5 +28,9 @@ class FrontOfficeController extends Controller
         return view('layouts.front.event.detail-event',compact('programDetail','mapbox'));
     }
 
+    public function purchase(){
+        return view('layouts.front.event.purchase');
+    }
+
 
 }
