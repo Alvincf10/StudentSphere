@@ -19,7 +19,7 @@ class FrontOfficeController extends Controller
     }
 
     public function allEvent(){
-        return view('layouts.front.event.all');
+        return view('layouts.front.event.all-event');
     }
 
     public function detailEvent(string $id){

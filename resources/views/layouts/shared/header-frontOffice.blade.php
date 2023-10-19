@@ -11,7 +11,7 @@
                         <a class="nav-link" href="#">Home</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="#">Event</a>
+                        <a class="nav-link" href="{{route('event')}}">Event</a>
                     </li>
                     <li class="nav-item me-3">
                         <a class="nav-link" href="#">About Us</a>
