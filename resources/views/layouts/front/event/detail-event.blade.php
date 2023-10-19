@@ -8,17 +8,21 @@
                 <div class="card mb-4">
                     <div class="card-map mt-4">
                         <div class="map">
-                            <div id='map' style='width: 400px; height: 300px;' data-api-key="{{ config('app.MAPBOX_TOKEN') }}"></div>
-                            <div class="d-flex mt-3">
-                                <div class="map-details ms-4">
-                                    <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
-                                    <div class="grup-map mb-2">
-                                        <p class="mb-0">Organizer: <strong>{{$programDetail->organizer->name_organizer}}</strong></p>
-                                        <p>Kouta: <strong> {{$programDetail->qouta}}</strong></p>
+                            <div id='map' style='width: 100%; height: 300px; border-radius:10px' data-api-key="{{ config('app.MAPBOX_TOKEN') }}"></div>
+                            <div class="row mt-3">
+                                <div class="col-md-8 col-12">
+                                    <div class="map-details ms-4">
+                                        <strong><h1 class="card-title fs-">{{$programDetail->program_name}}</h1></strong><br>
+                                        <div class="grup-map mb-2">
+                                            <p class="mb-0">Organizer: <strong>{{$programDetail->organizer->name_organizer}}</strong></p>
+                                            <p>Kouta: <strong> {{$programDetail->qouta}}</strong></p>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="group-direction d-flex align-items-center ms-4">
-                                    <button class="btn btn-outline-primary btn-direction">Get Direction</button>
+                                <div class="col-md-4 col-12 d-flex align-items-center">
+                                    <div class="group-direction ms-4">
+                                        <a href="https://www.google.com/maps/dir/{{$programDetail->location->latitude}},{{$programDetail->location->longitude}}" target="_blank" class="btn btn-outline-primary btn-direction">Get Direction</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -98,16 +102,21 @@
 
 <script>
     //maps
-    const mapApiKey = document.getElementById('map').getAttribute('data-api-key');
+    const mapApiKey = '{{$mapbox}}'
+
+    console.log(mapApiKey, 'fsdf')
     mapboxgl.accessToken = mapApiKey;
     document.addEventListener('DOMContentLoaded', function () {
         const map = new mapboxgl.Map({
         container: 'map',
         style: 'mapbox://styles/mapbox/streets-v11',
-        center: [106.816666, -6.200000], // Koordinat pusat
-        zoom: 12 // Level zoom
+        center: [{{$programDetail->location->longitude}}, {{$programDetail->location->latitude}}],
+        zoom: 13 // Level zoom
     });
-      })
+    new mapboxgl.Marker({ color: 'red' })
+        .setLngLat([{{$programDetail->location->longitude}}, {{$programDetail->location->latitude}}])
+        .addTo(map);
+    })
 
 
     const decrementButton = document.getElementById('decrement-button');

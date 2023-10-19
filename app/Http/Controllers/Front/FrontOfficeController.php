@@ -23,8 +23,9 @@ class FrontOfficeController extends Controller
     }
 
     public function detailEvent(string $id){
+        $mapbox = env('MAPBOX_TOKEN');
         $programDetail = Program::find($id);
-        return view('layouts.front.event.detail-event',compact('programDetail'));
+        return view('layouts.front.event.detail-event',compact('programDetail','mapbox'));
     }
 
 
