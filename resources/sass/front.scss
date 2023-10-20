@@ -375,35 +375,62 @@ a:hover{
     margin: 0 10px;
 }
 
-// all event
-.banner-body{
-    background: white;
-    height: 100%;
-    border-radius: 10px 0 0 10px;
-}
-
-.card-banner-img{
-    border-radius: 10px 10px;
-}
-.banner-time{
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
     display: flex;
-    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
     align-items: center;
-    background-color: #91311B;
-    color: #f9f9f9;
+    justify-content: center;
+    z-index: 1999;
+}
+
+.popup-header{
     text-align: center;
+    // justify-content: center;
+    // width: 50%;
+    left: 25%;
+    bottom: -10px;
+    border-bottom: 2px solid #F2542E;
 }
 
-.event-filter{
-    width: 25%;
-    background-color: white;
+.popup-content {
+    background: #fff;
+    padding: 20px;
     border-radius: 10px;
-    padding:20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 50%;
+    text-align: left;
+    position: relative;
+    top: 25%;
+    left: 25%;
+    width: 90%;
+    height: 60%;
+    max-height: 900px;
+    overflow: scroll;
 }
 
-// .list-event{
-//     max-height: 76rem
-// }
+.popup button#close-terms-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.card-purchase {
+    max-width: 556px;
+    padding: 2%;
+    width: 500%;
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+}
+
 @media screen and (max-width:1400px) {
     .card-event  .card{
         width: 17rem !important;
