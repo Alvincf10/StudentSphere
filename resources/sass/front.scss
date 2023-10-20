@@ -1,3 +1,20 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #F2542E;
+    border-radius: 10px;
+    transition: 0.2;
+  }
+
 body{
     background-color: #f7f7f7;
     font-family: "Poppins", sans-serif !important;
@@ -375,6 +392,36 @@ a:hover{
     margin: 0 10px;
 }
 
+//all event
+.banner-body{
+    background: white;
+    height: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.card-banner-img{
+    border-radius: 10px 10px;
+}
+.banner-time{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #91311B;
+    color: #f9f9f9;
+    text-align: center;
+}
+
+.event-filter{
+    width: 25%;
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+}
+
+// .list-event{
+//     max-height: 76rem
+// }
+
 .popup {
     position: fixed;
     top: 0;
@@ -389,6 +436,10 @@ a:hover{
     z-index: 1999;
 }
 
+.term:hover{
+    color: #F2542E;
+}
+
 .popup-header{
     text-align: center;
     // justify-content: center;
@@ -400,11 +451,11 @@ a:hover{
 
 .popup-content {
     background: #fff;
-    padding: 20px;
+    padding: 30px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     max-width: 50%;
-    text-align: left;
+    text-align: justify;
     position: relative;
     top: 25%;
     left: 25%;
@@ -423,12 +474,12 @@ a:hover{
     cursor: pointer;
 }
 
-.card-purchase {
-    max-width: 556px;
-    padding: 2%;
-    width: 500%;
-    border-radius: 10px;
-    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+.card-payment {
+    width: 40rem;
+}
+
+.img-container{
+    height: 90px;
 }
 
 @media screen and (max-width:1400px) {

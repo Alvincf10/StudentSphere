@@ -28,8 +28,9 @@ class FrontOfficeController extends Controller
         return view('layouts.front.event.detail-event',compact('programDetail','mapbox'));
     }
 
-    public function purchase(){
-        return view('layouts.front.event.purchase');
+    public function purchase(string $id){
+        $eventTicket = Program::find($id);
+        return view('layouts.front.event.purchase',compact('eventTicket'));
     }
 
 

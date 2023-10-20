@@ -87,20 +87,27 @@
 
                             <div class="form-group d-flex align-items-center mt-3">
                                 <input class="mr-2" type="checkbox" id="terms-checkbox">
-                                <label for="terms-checkbox" id="terms-label">Saya Menyetujui <a href="#" id="show-terms-link">Syarat dan Ketentuan</a></label>
+                                <label for="terms-checkbox" id="terms-label">I Agree to the <a href="#" class="color-primary term" id="show-terms-link">Terms and Conditions</a></label>
                             </div>
-                            
+
                             <div id="terms-popup" class="popup" style="display: none;">
                                 <div class="popup-content align-items-center">
                                     <div class="popup-header mb-2">
-                                        <h3>Syarat dan Ketentuan</h3>
+                                        <h3>Term and Conditionn</h3>
                                     </div>
                                     <div class="popup-body mt-4">
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nesciunt animi molestiae debitis aperiam! Beatae, vero. Dolores commodi sint repudiandae, fugit pariatur ipsum ut vitae perferendis laudantium soluta aperiam nesciunt rerum.</p> <br>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Dignissimos fuga vero eligendi laborum obcaecati est aliquam, cumque rem ut dolorem illo dolore facere sequi dolores error aperiam, natus nihil id!</p> <br>
-                                        <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Saepe, odio! Porro nihil et est! Enim, aspernatur quas autem rerum reprehenderit quasi culpa consequatur ex vel repellat. Doloremque alias hic nihil?</p>
+                                        <p>These terms and conditions (referred to as "Terms") are in place to regulate the purchase and utilization of event tickets through our website. By proceeding with a ticket reservation, you indicate your acceptance and agreement to abide by these Terms.
+                                            When purchasing tickets through our website, please be aware that ticket availability is subject to confirmation. The price of the tickets listed on our website is the net price and does not include additional fees, taxes, or administrative charges, which may apply.
+                                            Payment for tickets is required to be made in accordance with the payment instructions provided on our website. It is important to note that purchased tickets are generally non-refundable and non-cancellable, except under specific circumstances determined by the event organizer.
+                                            The event organizer retains the right to make alterations to the event, such as changes in the date, time, location, or performers, without prior notice. In such cases, we will endeavor to inform you promptly about any changes that may affect your reservation.
+                                            It is your responsibility to safeguard the tickets you have purchased. In the event of ticket loss, theft, or misuse, we cannot be held liable for any resulting losses.
+                                            Your personal information provided during the ticket reservation process is governed by our Privacy Policy, and we assure you that your privacy will be respected.
+                                            In addition to these general terms and conditions, specific events may have additional terms and conditions that are applicable. Such additional terms, if present, will be clearly outlined in the event description.
+                                            We would like to emphasize that we are not responsible for any losses or injuries that may occur during the event. Attendees are expected to exercise due care and caution while participating in the event.
+                                            Please be aware that these terms and conditions are subject to change without prior notice. We encourage you to periodically review the terms and conditions to stay informed about any updates.
+                                            By using our website to reserve tickets, you indicate your agreement to comply with the aforementioned terms and conditions. We highly recommend that you carefully read and understand these terms and conditions before proceeding with ticket reservations.</p>
                                     </div>
-                                    
+
                                     <button id="close-terms-popup">
                                         <i class="ti ti-close"></i>
                                     </button>
@@ -116,7 +123,7 @@
                         </div>
                     </div>
                     <div class="group-ticket p-4">
-                        <a href="{{ route('purchase') }}" class="btn btn-primary btn-lg btn-ticket">Get Ticket</a>
+                        <a  href="{{ route('event.purchase',['id'=>$programDetail->id]) }}"><button id="get-ticket-button" class="btn btn-primary btn-lg btn-ticket" disabled> Get Ticket</button></a>
                     </div>
                 </div>
             </div>
@@ -127,7 +134,6 @@
     //maps
     const mapApiKey = '{{$mapbox}}'
 
-    console.log(mapApiKey, 'fsdf')
     mapboxgl.accessToken = mapApiKey;
     document.addEventListener('DOMContentLoaded', function () {
         const map = new mapboxgl.Map({
@@ -140,6 +146,19 @@
         .setLngLat([{{$programDetail->location->longitude}}, {{$programDetail->location->latitude}}])
         .addTo(map);
     })
+
+    //term condition
+    const termsCheckbox = document.getElementById('terms-checkbox');
+    const getTicketButton = document.getElementById('get-ticket-button');
+
+    termsCheckbox.addEventListener('change', function() {
+        if (termsCheckbox.checked) {
+            getTicketButton.removeAttribute('disabled');
+        } else {
+            getTicketButton.setAttribute('disabled', 'true');
+        }
+    });
+
 
 
     const decrementButton = document.getElementById('decrement-button');
