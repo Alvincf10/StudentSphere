@@ -8,10 +8,10 @@
             <div class="d-flex flex-column">
               <h4><b>Filters</b> </h4>
 
-          
+
               <div class="col-3 ms-4 mt-2">
                 <h4>Date</h4>
-              
+
                 <div class="form-check mt-1">
                     <input type="radio" class="form-check-input" id="date-weekend">
                     <label class="form-check-label" for="date-weekend">This Weekend</label>
@@ -63,14 +63,14 @@
                     <input type="radio" class="form-check-input" id="category-fashion">
                     <label class="form-check-label" for="category-fashion">Fashion</label>
                   </div>
-        
+
                 </div>
                 <button id="viewMoreButton" class="btn btn-link">View More</button>
               </div>
             </div>
 
             <button type="submit" class="btn btn-primary mt-3">Apply Filters</button>
-            
+
         </div>
 
         <div class="list-event col-8">
@@ -78,7 +78,7 @@
 
             <div class="box-shadow row mt-3 max-height">
               <div class="col-6 p-0">
-                <img src="https://www.engagifii.com/hubfs/Imported_Blog_Media/unnamed-1.jpg" class="card-img" alt="...">
+                <img src="https://media.istockphoto.com/id/1139837519/photo/blurred-de-focused-audience-in-conference-lecture-presentation-room-corporate-presentations.jpg?s=612x612&w=0&k=20&c=DqjU9k5nPJn5Ivq8a1AtG_tsBocAtNIGXFG3bmTfxzg=" class="card-img" alt="...">
               </div>
               <div class="col-6 p-0">
                 <div class="banner-body">
@@ -109,11 +109,11 @@
 </div>
 
 
-  
+
   <script>
     const viewMoreButton = document.getElementById("viewMoreButton");
     const additionalCategories = document.getElementById("additionalCategories");
-  
+
     viewMoreButton.addEventListener("click", function () {
       if (additionalCategories.style.display === "none") {
         additionalCategories.style.display = "block";
@@ -128,5 +128,5 @@
 
 
 
-  
+
 @endsection

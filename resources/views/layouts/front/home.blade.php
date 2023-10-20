@@ -74,7 +74,7 @@
         <section class="event header-section">
             <div class="d-flex justify-content-between">
                 <h3 class="header-name">Event</h3>
-                <span class="color-primary cursor-pointer">See All</span>
+                <a href="{{route('eventFront')}}"><span class="color-primary cursor-pointer">See All</span></a>
             </div>
             <div class="row mt-4">
                 @foreach ($programAvailable->take(4) as $programs)
