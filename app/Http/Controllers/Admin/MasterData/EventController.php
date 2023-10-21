@@ -103,44 +103,55 @@ class EventController extends Controller
      */
     public function update(Request $request, string $id, Program $program)
     {
-        $validator = Validator::make($request->all(),[
-            'event_name'=>'required',
-            'banner' => 'required|image',
-            'description'=>'required',
-            'price'=>'required',
-            'eventDate'=>'required',
-            'startDate'=>'required',
-            'endDate'=>'required',
-            'qouta'=>'required',
-            'organizer'=>'required',
-            'location'=>'required',
-            'category'=>'required',
+        $validator = Validator::make($request->all(), [
+            'event_name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'eventDate' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
+            'qouta' => 'required',
+            'organizer' => 'required',
+            'location' => 'required',
+            'category' => 'required',
         ]);
 
-        if($validator->fails()){
-            return redirect()->route('event.create')->withErrors($validator)->withInput();
-        }else{
-            $image = $request->file('banner');
-            $filename = time().'.'. $image->getClientOriginalExtension();
-            Storage::disk('local')->putFileAs('public/events',$image,$filename);
-
-            $program = Program::find($id);
-
-            $program ->program_name =$request->input('event_name');
-            $program -> banner= $filename;
-            $program ->description =$request->input('description');
-            $program ->price =$request->input('price');
-            $program ->date_program =$request->input('eventDate');
-            $program ->start_date_program =$request->input('startDate');
-            $program ->end_date_program =$request->input('endDate');
-            $program ->qouta =$request->input('qouta');
-            $program ->id_organizer =$request->input('organizer');
-            $program ->id_location =$request->input('location');
-            $program ->id_category =$request->input('category');
-
-            $program->save();
-            return redirect()->route('event');
+        if ($validator->fails()) {
+            return redirect()->route('event.edit', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
         }
+
+        $program = Program::find($id);
+
+        $program->program_name = $request->input('event_name');
+        $program->description = $request->input('description');
+        $program->price = $request->input('price');
+        $program->date_program = $request->input('eventDate');
+        $program->start_date_program = $request->input('startDate');
+        $program->end_date_program = $request->input('endDate');
+        $program->qouta = $request->input('qouta');
+        $program->id_organizer = $request->input('organizer');
+        $program->id_location = $request->input('location');
+        $program->id_category = $request->input('category');
+
+        if ($request->hasFile('banner')) {
+            $image = $request->file('banner');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/events', $image, $filename);
+
+            // Hapus gambar lama jika ada
+            if ($program->banner) {
+                Storage::disk('local')->delete('public/events/' . $program->banner);
+            }
+
+            $program->banner = $filename;
+        }
+
+        $program->save();
+
+        return redirect()->route('event');
+
     }
 
     /**

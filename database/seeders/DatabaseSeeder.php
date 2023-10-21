@@ -30,6 +30,24 @@ class DatabaseSeeder extends Seeder
         \App\Models\Category::factory()->create([
             'category_name' => 'Conference'
         ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Workshop'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Sport'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Social'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Art'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Fashion'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Game'
+        ]);
 
         \App\Models\Organizer::factory()->create([
             'name_organizer' => 'Binus'

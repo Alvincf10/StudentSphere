@@ -63,6 +63,9 @@ Route::group(['middleware' => ['auth']], function() {
 
 
     Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
+
+    //event
     Route::get('/event', [App\Http\Controllers\front\FrontOfficeController::class,'allEvent'])->name('eventFront');
+    Route::post('/event/filter', [App\Http\Controllers\front\FrontOfficeController::class,'filterEvent'])->name('eventFront.filter');
     Route::get('/event/event-detail/{id}', [App\Http\Controllers\front\FrontOfficeController::class,'detailEvent'])->name('event.detail');
     Route::get('/event/event-detail/{id}/purchase', [App\Http\Controllers\front\FrontOfficeController::class,'purchase'])->name('event.purchase');

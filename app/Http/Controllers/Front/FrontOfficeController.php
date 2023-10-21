@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Models\Program;
 use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class FrontOfficeController extends Controller
 {
@@ -19,7 +20,37 @@ class FrontOfficeController extends Controller
     }
 
     public function allEvent(){
-        return view('layouts.front.event.all-event');
+        $program = Program::with('organizer','location','category')->get();
+        return view('layouts.front.event.all-event',compact('program'));
+    }
+
+    public function filterEvent(Request $request){
+        $dateOption = $request->input('date-option');
+        $priceOption = $request->input('price-option');
+        $categoryOption = $request->input('category-option');
+
+        $program = Program::query();
+
+        if($dateOption === 'this-month'){
+            $program->whereYear('date_program', Carbon::now()->year)->whereMonth('date_program',Carbon::now()->month);
+        }elseif($dateOption === 'next-month'){
+            $program->whereYear('date_program', Carbon::now()->addMonth()->year)
+            ->whereMonth('date_program', Carbon::now()->addMonth()->month);
+        }
+
+        if ($priceOption === 'free') {
+            $program->where('price', 0);
+        } elseif ($priceOption === 'paid') {
+            $program->where('price', '>', 0);
+        }
+
+        if($categoryOption){
+            $program->where('id_category', $categoryOption);
+        }
+
+        $filteredProgram = $program->get();
+
+        return view('layouts.front.event.all-event',compact('filteredProgram'));
     }
 
     public function detailEvent(string $id){
