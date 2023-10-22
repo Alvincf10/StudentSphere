@@ -417,15 +417,11 @@ a:hover{
     background-color: white;
     border-radius: 10px;
     padding:20px;
-    height: 46rem;
+    height: 47rem;
     transition: max-height 0.3s ease-in-out;
     overflow: hidden;
     max-height: 1000px;
 }
-
-.filter-collapsed .event-filter {
-    max-height: 0;
-  }
 
 .form-check-input[type=radio] {
     border-radius: 50%;
@@ -446,7 +442,8 @@ a:hover{
     border-radius: 10px 0 0 10px;
 }
 
-.content-container{
+.title-not-found{
+    font-weight: 700;
 }
 
 // .list-event{
@@ -592,6 +589,10 @@ a:hover{
     .list-event{
         margin-top: 3rem;
     }
+
+    .filter-collapsed {
+        max-height: 4rem !important;
+      }
 }
 
 @media screen and (max-width:576px) {
