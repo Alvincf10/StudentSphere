@@ -14,7 +14,10 @@
                         <a class="nav-link" href="{{route('eventFront')}}">Event</a>
                     </li>
                     <li class="nav-item me-3">
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="{{route('aboutUsFront')}}">About Us</a>
+                    </li>
+                    <li class="nav-item me-3">
+                        <a class="nav-link" href="{{route('transaction')}}">Check Transaction</a>
                     </li>
                 </ul>
                 <form class="d-flex">

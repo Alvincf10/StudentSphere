@@ -510,6 +510,10 @@ a:hover{
     height: 90px;
 }
 
+.check-trans a:hover{
+    color: #F2542E !important;
+}
+
 @media screen and (max-width:1400px) {
     .card-event  .card{
         width: 17rem !important;

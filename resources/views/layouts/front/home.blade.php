@@ -120,7 +120,7 @@
                                 <h5 class="mt-4 mb-4">Unleash The Full Potential of your Gatherings</h5>
                             </div>
                             <div class="btn-all">
-                                <a class="btn btn-primary">See All Event</a>
+                                <a href="{{route('eventFront')}}" class="btn btn-primary">See All Event</a>
                             </div>
                         </div>
                     </div>

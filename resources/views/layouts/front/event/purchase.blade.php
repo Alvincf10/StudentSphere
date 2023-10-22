@@ -15,7 +15,7 @@
             </div>
 
             <div class="group-payment">
-                <a href="" class="btn btn-primary w-100"> Payment</a>
+                <a href="{{route('event.paymentDetail',['id'=>$eventTicket->id])}}" class="btn btn-primary w-100"> Payment</a>
             </div>
         </div>
     </div>

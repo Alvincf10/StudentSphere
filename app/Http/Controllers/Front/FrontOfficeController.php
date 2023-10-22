@@ -4,8 +4,10 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
 use App\Models\Program;
+use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class FrontOfficeController extends Controller
 {
@@ -17,6 +19,14 @@ class FrontOfficeController extends Controller
         $programSold = Program::where('end_date_program','<=',$now)->get();
         $programAvailable = Program::where('end_date_program','>=',$now)->orderBy('end_date_program','desc')->get();
         return view('layouts.front.home', compact('program','programSold','programAvailable'));
+    }
+
+    public function transaction(){
+        return view('layouts.front.check-transaction');
+    }
+
+    public function aboutUsFront(){
+        return view('layouts.front.about-us');
     }
 
     public function allEvent(){
@@ -59,10 +69,33 @@ class FrontOfficeController extends Controller
         return view('layouts.front.event.detail-event',compact('programDetail','mapbox'));
     }
 
+    public function createTicket(string $id, Transaction $transaction, Request $request){
+        $trans_code = 6;
+
+        $transaction->trans_code = generateRandomString($trans_code);
+        $transaction->quantity = 1;
+        $transaction->total_amount = 10000;
+        $transaction->customer_email = $request->input('email');
+        $transaction->payment_method = 'Transfer';
+        $transaction->transaction_date = Carbon::now();
+        $transaction->payment_status = 0;
+
+
+        $transaction->save();
+        return redirect('event/event-detail/{id}/purchase');
+    }
+
     public function purchase(string $id){
         $eventTicket = Program::find($id);
         return view('layouts.front.event.purchase',compact('eventTicket'));
     }
+
+    public function paymentDetail(string $id){
+        $eventTicket = Program::find($id);
+        return view('layouts.front.event.payment-detail-event',compact('eventTicket'));
+    }
+
+
 
 
 }
