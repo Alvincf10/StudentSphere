@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->string('trans_code')->unique();
+            $table->string('id_program');
             $table->integer('quantity');
             $table->integer('total_amount');
             $table->string('payment_method');

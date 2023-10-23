@@ -11,6 +11,10 @@
             <div class="title text-center">
                 <h3 class="fw-medium">Congrast!!</h3>
                 <p>Your payment has been received! Please check your email to see the order code.</p>
+                <div class="title">
+                    <h5 class="fw-medium">No.Transaction</h5>
+                    <p class="fw-bolder">FbHqrj</p>
+                </div>
                 <strong><p>Thank you</p></strong>
             </div>
 

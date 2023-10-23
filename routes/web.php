@@ -64,12 +64,17 @@ Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/', [App\Http\Controllers\front\FrontOfficeController::class,'index'])->name('frontOffice');
     Route::get('/about-us', [App\Http\Controllers\front\FrontOfficeController::class,'aboutUsFront'])->name('aboutUsFront');
-    Route::get('/check-transaction', [App\Http\Controllers\front\FrontOfficeController::class,'transaction'])->name('transaction');
 
     //event
     Route::get('/event', [App\Http\Controllers\front\FrontOfficeController::class,'allEvent'])->name('eventFront');
+    Route::get('/event/event-previous', [App\Http\Controllers\front\FrontOfficeController::class,'eventPrevious'])->name('eventPrevious');
     Route::post('/event/filter', [App\Http\Controllers\front\FrontOfficeController::class,'filterEvent'])->name('eventFront.filter');
     Route::get('/event/event-detail/{id}', [App\Http\Controllers\front\FrontOfficeController::class,'detailEvent'])->name('event.detail');
     Route::post('/event/event-detail/{id}', [App\Http\Controllers\front\FrontOfficeController::class,'createTicket'])->name('event.createTicket');
     Route::get('/event/event-detail/{id}/purchase', [App\Http\Controllers\front\FrontOfficeController::class,'purchase'])->name('event.purchase');
+    Route::post('/event/event-detail/{id}/purchase', [App\Http\Controllers\front\FrontOfficeController::class,'changePaymentStatus'])->name('event.purchase.changeStatus');
     Route::get('/event/event-detail/{id}/purchase/payment-detail', [App\Http\Controllers\front\FrontOfficeController::class,'paymentDetail'])->name('event.paymentDetail');
+
+    //check transaction
+    Route::get('/check-transaction', [App\Http\Controllers\front\FrontOfficeController::class,'transaction'])->name('transaction');
+    Route::post('/check-transaction',[\App\Http\Controllers\Front\FrontOfficeController::class,'searchTransaction'])->name('checkTransaction');

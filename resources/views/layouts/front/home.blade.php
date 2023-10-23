@@ -135,7 +135,7 @@
         <section class="event header-section">
             <div class="d-flex justify-content-between">
                 <h3 class="header-name">Previous Event</h3>
-                <span class="color-primary cursor-pointer">See All</span>
+                <a href="{{route('eventPrevious')}}"><span class="color-primary cursor-pointer">See All</span></a>
             </div>
             <div class="row mt-4">
                 @foreach ($programSold->take(4) as $programs )

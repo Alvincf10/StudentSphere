@@ -15,7 +15,10 @@
             </div>
 
             <div class="group-payment">
-                <a href="{{route('event.paymentDetail',['id'=>$eventTicket->id])}}" class="btn btn-primary w-100"> Payment</a>
+                <form action="" method="POST">
+                    @csrf
+                    <button type="submit" class="btn btn-primary w-100"><a href="{{route('event.paymentDetail',['id'=>$id])}}" class="text-white"> Payment</a></button>
+                </form>
             </div>
         </div>
     </div>

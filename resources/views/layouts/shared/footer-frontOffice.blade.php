@@ -2,7 +2,7 @@
     <div class="content-footer header-section">
         <div class="row p-4">
             <div class="profile-footer col-lg-6 col-md-6 col-12 mb-5">
-                <img class="img-fluid mb-4" src="{{asset('image/logo.png')}}" width="10%">
+                <img class="mb-4" src="{{asset('image/logo-front.png')}}" width="300">
                 <div class="description text-white">
                     <span>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero assumenda velit </span>
                 </div>

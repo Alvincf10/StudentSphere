@@ -21,8 +21,22 @@ class FrontOfficeController extends Controller
         return view('layouts.front.home', compact('program','programSold','programAvailable'));
     }
 
+    public function eventPrevious(){
+        $now = Carbon::now();
+        $eventPrevious = Program::where('end_date_program','<=',$now)->get();
+        return view('layouts.front.event.event-previous',compact('eventPrevious'));
+    }
+
     public function transaction(){
         return view('layouts.front.check-transaction');
+    }
+
+    public function searchTransaction(Request $request ,Transaction $transaction){
+        $transaction_code = $request->input('trans_code');
+
+        $transaction = Transaction::where('trans_code',$transaction_code)->first();
+
+        return  view('layouts.front.check-transaction',compact('transaction'));
     }
 
     public function aboutUsFront(){
@@ -72,6 +86,8 @@ class FrontOfficeController extends Controller
     public function createTicket(string $id, Transaction $transaction, Request $request){
         $trans_code = 6;
 
+        $transaction = new Transaction();
+        $transaction->id_program = $id;
         $transaction->trans_code = generateRandomString($trans_code);
         $transaction->quantity = 1;
         $transaction->total_amount = 10000;
@@ -80,14 +96,18 @@ class FrontOfficeController extends Controller
         $transaction->transaction_date = Carbon::now();
         $transaction->payment_status = 0;
 
-
         $transaction->save();
-        return redirect('event/event-detail/{id}/purchase');
+
+        $transactionId = $transaction->id;
+        return redirect('event/event-detail/'.$id.'/purchase');
     }
 
     public function purchase(string $id){
-        $eventTicket = Program::find($id);
-        return view('layouts.front.event.purchase',compact('eventTicket'));
+        return view('layouts.front.event.purchase',compact('id'));
+    }
+
+    public function changePaymentStatus(string $transactionId){
+        $transaction = Transaction::find($transactionId);
     }
 
     public function paymentDetail(string $id){
