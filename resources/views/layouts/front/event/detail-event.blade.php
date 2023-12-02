@@ -73,17 +73,17 @@
                             <div class="detail-price mb-2">
                                 <p id="ticket-price">{{$programDetail->price == 0 ? 'Free' : currency_IDR($programDetail->price) . '/ Ticket'}} </p>
                             </div>
-                            <div class="personal-data mt-4">
+                            <div class="personal-data mt-4" id="personal-datas">
                                 <div class="title">
                                     <p class="fw-bolder">Fill Your Personal Data</p>
                                 </div>
                                 <div class="form-group d-flex align-items-center">
                                     <i class="ti ti-mail label-purchase"></i>
-                                    <input type="text" class="form-control" name="email"  value="email">
+                                    <input type="text" class="form-control" name="email"  placeholder="Email">
                                 </div>
                                 <div class="form-group d-flex align-items-center mt-3">
                                     <i class="ti ti-mail label-purchase"></i>
-                                    <input type="text" class="form-control" name="confirm_email"  value="Confirm Email">
+                                    <input type="text" class="form-control" name="confirm_email"  placeholder="Confirm Email">
                                 </div>
 
                                 <div class="form-group d-flex align-items-center mt-3">
@@ -123,7 +123,7 @@
                                 </div>
                             </div>
                             <div class="group-ticket p-4">
-                                <button type="submit" id="get-ticket-button" class="btn btn-primary btn-lg btn-ticket" disabled><a class="text-white" href="{{ route('event.purchase',['id'=>$programDetail->id]) }}"> Get Ticket </a></button>
+                                <button type="submit" id="get-ticket-button" class="btn btn-primary btn-lg btn-ticket" disabled><a class="text-white" href="{{ route('event.createTicket',['id'=>$programDetail->id]) }}"> Get Ticket </a></button>
                             </div>
                         </form>
                     </div>
@@ -161,41 +161,41 @@
         }
     });
 
-    const decrementButton = document.getElementById('decrement-button');
-    const incrementButton = document.getElementById('increment-button');
-    const ticketQuantity = document.getElementById('ticket-quantity');
-    const totalPrice = document.getElementById('total-price');
-    const ticketPrice = {{ $programDetail->price }}
+        const decrementButton = document.getElementById('decrement-button');
+        const incrementButton = document.getElementById('increment-button');
+        const ticketQuantity = document.getElementById('ticket-quantity');
+        const totalPrice = document.getElementById('total-price');
+        const ticketPrice = {{ $programDetail->price }}
 
-    let quantity = 1;
+        let quantity = 1;
 
-    decrementButton.addEventListener('click', () => {
-        if (quantity > 1) {
-            quantity--;
+        decrementButton.addEventListener('click', () => {
+            if (quantity > 1) {
+                quantity--;
+                ticketQuantity.textContent = quantity;
+                updateTotalPrice();
+            }
+        });
+
+        incrementButton.addEventListener('click', () => {
+            quantity++;
             ticketQuantity.textContent = quantity;
             updateTotalPrice();
+        });
+
+        function updateTotalPrice() {
+        const total = quantity * ticketPrice;
+        totalPrice.textContent = `Rp.${total.toLocaleString()}`;
+        const isFree = (quantity > 1);
+        let price = ticketPrice * quantity;
+
+        if (isFree) {
+            price = 0;
         }
-    });
 
-    incrementButton.addEventListener('click', () => {
-        quantity++;
-        ticketQuantity.textContent = quantity;
+        ticketPrice.textContent = `Rp. ${ price.toLocaleString()}`;
+        }
         updateTotalPrice();
-    });
-
-    function updateTotalPrice() {
-    const total = quantity * ticketPrice;
-    totalPrice.textContent = `Rp.${total.toLocaleString()}`;
-    const isFree = (quantity > 1);
-    let price = ticketPrice * quantity;
-
-    if (isFree) {
-        price = 0;
-    }
-
-    ticketPrice.textContent = `Rp. ${ price.toLocaleString()}`;
-    }
-    updateTotalPrice();
 
     const showTermsLink = document.getElementById('show-terms-link');
     const termsPopup = document.getElementById('terms-popup');
@@ -215,6 +215,7 @@
             termsPopup.style.display = 'none';
         }
     });
+
 
     function validateForm(form) {
             const emailInput = form.querySelector("input[name='email']");

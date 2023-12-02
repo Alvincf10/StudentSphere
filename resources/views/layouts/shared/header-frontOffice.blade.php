@@ -20,10 +20,6 @@
                         <a class="nav-link" href="{{route('transaction')}}">Check Transaction</a>
                     </li>
                 </ul>
-                <form class="d-flex">
-                    <input class="form-control input search me-2" type="search" placeholder="Search Event" aria-label="Search">
-                    <button class="btn btn-outline-primary btn-search" type="submit">Search</button>
-                </form>
             </div>
         </div>
     </nav>

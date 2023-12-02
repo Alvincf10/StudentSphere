@@ -98,16 +98,18 @@ class FrontOfficeController extends Controller
 
         $transaction->save();
 
-        $transactionId = $transaction->id;
-        return redirect('event/event-detail/'.$id.'/purchase');
+        $transactionTicket = $transaction;
+        return redirect()->route('event.purchase', compact('id'))->with('transactionTicket', $transaction);
     }
 
-    public function purchase(string $id){
-        return view('layouts.front.event.purchase',compact('id'));
+    public function purchase($id){
+    $transactionTicket = session('transactionTicket');
+    return view('layouts.front.event.purchase', compact('id','transactionTicket'));
     }
 
     public function changePaymentStatus(string $transactionId){
         $transaction = Transaction::find($transactionId);
+        // dd($transaction);
     }
 
     public function paymentDetail(string $id){
