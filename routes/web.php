@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 use App\Http\Controllers\Admin\Dashboard\DashboardController;
+use App\Http\Controllers\Admin\Transaction\TransactionController;
 use App\Http\Controllers\Front\FrontOfficeController;
 
 /*
@@ -22,6 +23,9 @@ Auth::routes();
 Route::group(['middleware' => ['auth']], function() {
 
     Route::get('/dashboard', [DashboardController::class,'index'])->name('dashboard');
+
+    //transaction
+    Route::get('/transactions', [TransactionController::class,'index'])->name('transactions');
 
     //event
     Route::get('management-event/event', [App\Http\Controllers\Admin\MasterData\EventController::class,'index'])->name('event');

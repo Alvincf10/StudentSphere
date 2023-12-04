@@ -35,6 +35,12 @@ class menu extends Component
                 'icon' => 'ti ti-layout-dashboard'
             ],
             [
+                'label' => 'Transaction',
+                'route' => 'transactions',
+                'type' => 'item',
+                'icon' => 'ti ti-layout-dashboard'
+            ],
+            [
                 'label' => 'Management Event',
                 'route' => 'management-event',
                 'type' => 'group',
