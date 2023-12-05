@@ -247,7 +247,24 @@ a:hover{
     padding: 10px;
     font-size: 35px;
     border-radius: 5px;
+    filter: brightness(100%);
 }
+
+.banner-sold{
+    width: 130vh;
+}
+
+.image-sold{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    font-size: 35px;
+    border-radius: 5px;
+}
+
 
 .content-footer{
     background-color: #221E1C;
@@ -512,6 +529,17 @@ a:hover{
 
 .check-trans a:hover{
     color: #F2542E !important;
+}
+
+
+// about us
+.card-about{
+    background-color: #FDE5E0;
+}
+
+.text-weight{
+    font-weight: 500;
+    // line-height: 1.2em;
 }
 
 @media screen and (max-width:1400px) {
