@@ -122,7 +122,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="group-ticket p-4">
+                            <div  class="group-ticket p-4">
                                 <button type="submit" id="get-ticket-button" class="btn btn-primary btn-lg btn-ticket" disabled><a class="text-white" href="{{ route('event.createTicket',['id'=>$programDetail->id]) }}"> Get Ticket </a></button>
                             </div>
                         </form>

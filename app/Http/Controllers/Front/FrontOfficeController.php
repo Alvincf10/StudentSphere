@@ -83,7 +83,6 @@ class FrontOfficeController extends Controller
         $programDetail = Program::find($id);
         return view('layouts.front.event.detail-event',compact('programDetail','mapbox'));
     }
-
     public function createTicket(string $id, Transaction $transaction, Request $request){
         $trans_code = 6;
 
@@ -98,19 +97,21 @@ class FrontOfficeController extends Controller
         $transaction->payment_status = 0;
 
         $transaction->save();
-
-        $transactionTicket = $transaction;
-        return redirect()->route('event.purchase', compact('id'))->with('transactionTicket', $transaction);
+        // $transactionId =$transaction->id;
+        return view('layouts.front.event.purchase');
     }
 
-    public function purchase($id){
-    $transactionTicket = session('transactionTicket');
-    return view('layouts.front.event.purchase', compact('id','transactionTicket'));
+    public function purchase($transactionId, $programTransaction = null){
+        // dd($transactionId);
+        // $programTransaction = Transaction::find($transactionId);
+        // dd($programTransaction);
+        // return view('layouts.front.event.purchase', compact('id','programTransaction'));
     }
 
-    public function changePaymentStatus(string $transactionId){
-        $transaction = Transaction::find($transactionId);
-        // dd($transaction);
+    public function changePaymentStatus($TransactionId){
+        dd($TransactionId);
+        $transaction = Transaction::find($TransactionId);
+        dd($transaction);
     }
 
     public function paymentDetail(string $id){
