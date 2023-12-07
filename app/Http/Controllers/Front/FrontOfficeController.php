@@ -22,9 +22,10 @@ class FrontOfficeController extends Controller
     }
 
     public function eventPrevious(){
+
         $now = Carbon::now();
-        $eventPrevious = Program::where('end_date_program','<=',$now)->get();
-        return view('layouts.front.event.event-previous',compact('eventPrevious'));
+        $previousEvent = Program::where('end_date_program', '<', $now)->get();
+        return view('layouts.front.event.event-previous',compact('previousEvent'));
     }
 
     public function transaction(){

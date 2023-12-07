@@ -82,5 +82,6 @@ Route::group(['middleware' => ['auth']], function() {
     Route::get('/event/event-detail/{id}/purchase/payment-detail', [FrontOfficeController::class,'paymentDetail'])->name('event.paymentDetail');
 
     //check transaction
-    Route::get('/check-transaction', [FrontOfficeController::class,'transaction'])->name('transaction');
+    Route::get('/check-t ransaction', [FrontOfficeController::class,'transaction'])->name('transaction');
     Route::post('/check-transaction',[FrontOfficeController::class,'searchTransaction'])->name('checkTransaction');
+  
