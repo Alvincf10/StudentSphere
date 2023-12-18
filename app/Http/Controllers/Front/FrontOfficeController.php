@@ -9,7 +9,7 @@ use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
-class FrontOfficeController extends Controller
+    class FrontOfficeController extends Controller
 {
 
     public function index(){
@@ -97,29 +97,27 @@ class FrontOfficeController extends Controller
         $transaction->payment_status = 0;
 
         $transaction->save();
-        // $transactionId =$transaction->id;
-        return view('layouts.front.event.purchase');
+        $transactionId = $transaction->id;
+        return redirect()->route('event.payment',with($transactionId));
     }
 
-    public function purchase($transactionId, $programTransaction = null){
-        // dd($transactionId);
-        // $programTransaction = Transaction::find($transactionId);
-        // dd($programTransaction);
-        // return view('layouts.front.event.purchase', compact('id','programTransaction'));
+    public function payment($idTransac){
+        $transactionCustomer = Transaction::find($idTransac);
+        return view('layouts.front.event.purchase',['transactionCustomer'=>$transactionCustomer]);
     }
 
     public function changePaymentStatus($TransactionId){
-        dd($TransactionId);
         $transaction = Transaction::find($TransactionId);
-        dd($transaction);
+        $transaction->payment_status = 1;
+
+        $transaction->save();
+        return redirect()->route('event.invoice',with($TransactionId));
     }
 
-    public function paymentDetail(string $id){
-        $eventTicket = Program::find($id);
-        return view('layouts.front.event.payment-detail-event',compact('eventTicket'));
+    public function invoice($idTransac){
+        $transactionInvoice = Transaction::find($idTransac);
+        return view('layouts.front.event.payment-detail-event',['invoiceDetail'=>$transactionInvoice]);
     }
-
-
 
 
 }

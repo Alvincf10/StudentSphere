@@ -77,9 +77,9 @@ Route::group(['middleware' => ['auth']], function() {
     Route::post('/event/filter', [FrontOfficeController::class,'filterEvent'])->name('eventFront.filter');
     Route::get('/event/event-detail/{id}', [FrontOfficeController::class,'detailEvent'])->name('event.detail');
     Route::post('/event/event-detail/{id}', [FrontOfficeController::class,'createTicket'])->name('event.createTicket');
-    Route::get('/event/event-detail/purchase', [FrontOfficeController::class, 'purchase'])->name('event.purchase');
-    Route::post('/event/event-detail/purchase', [FrontOfficeController::class,'changePaymentStatus'])->name('event.purchase.changeStatus');
-    Route::get('/event/event-detail/purchase/payment-detail', [FrontOfficeController::class,'paymentDetail'])->name('event.paymentDetail');
+    Route::get('/payment/{idTransac}', [FrontOfficeController::class, 'payment'])->name('event.payment');
+    Route::post('/payment/{idTransac}', [FrontOfficeController::class,'changePaymentStatus'])->name('event.purchase.changeStatus');
+    Route::get('/payment/{idTransac}/invoice', [FrontOfficeController::class,'invoice'])->name('event.invoice');
     // Route::get('/event/event-detail/{id}/purchase', [FrontOfficeController::class, 'purchase'])->name('event.purchase');
     // Route::post('/event/event-detail/{id}/purchase', [FrontOfficeController::class,'changePaymentStatus'])->name('event.purchase.changeStatus');
     // Route::get('/event/event-detail/{id}/purchase/payment-detail', [FrontOfficeController::class,'paymentDetail'])->name('event.paymentDetail');
