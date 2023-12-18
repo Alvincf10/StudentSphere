@@ -3,10 +3,12 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Mail\invoiceMail;
 use App\Models\Program;
 use App\Models\Transaction;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
 
     class FrontOfficeController extends Controller
@@ -111,6 +113,9 @@ use Illuminate\Support\Facades\Validator;
         $transaction->payment_status = 1;
 
         $transaction->save();
+
+        Mail::to($transaction->customer_email)->send(new invoiceMail($transaction));
+
         return redirect()->route('event.invoice',with($TransactionId));
     }
 
