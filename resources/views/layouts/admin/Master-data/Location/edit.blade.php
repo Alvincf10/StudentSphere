@@ -16,6 +16,20 @@
                     <span class="text-danger">{{ $message }}</span>
               @enderror
             </div>
+            <div class="mb-3">
+              <label class="form-label">Latitude</label>
+              <input type="text" class="form-control" name="latitude" value="{{$location['latitude']}}">
+              @error('latitude')
+                    <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Longitude</label>
+              <input type="text" class="form-control" name="longitude" value="{{$location['longitude']}}">
+              @error('longitude')
+                    <span class="text-danger">{{ $message }}</span>
+              @enderror
+            </div>
             <a href="{{route('location')}}" class="btn btn-light mr-2">Cancel</a>
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>

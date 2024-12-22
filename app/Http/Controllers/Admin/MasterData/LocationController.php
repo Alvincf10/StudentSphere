@@ -32,13 +32,17 @@ class LocationController extends Controller
     public function store(Request $request, Location $location)
     {
             $validator = Validator::make($request->all(),[
-                'location_name' =>'required'
+                'location_name' =>'required',
+                'latitude' =>'required',
+                'longitude' =>'required'
             ]);
 
             if($validator -> fails()){
                 return redirect()->route('location.create')->withErrors($validator)->withInput();
             }else{
                 $location->location_name = $request->input('location_name');
+                $location->latitude = $request->input('latitude');
+                $location->longitude = $request->input('longitude');
 
                 $location->save();
                 return redirect()->route('location');
@@ -69,7 +73,9 @@ class LocationController extends Controller
     public function update(Request $request, string $id, Location $location)
     {
         $validator = Validator::make($request->all(),[
-            'location_name' =>'required'
+            'location_name' =>'required',
+            'latitude' =>'required',
+            'longitude' =>'required'
         ]);
 
         if($validator -> fails()){
@@ -77,6 +83,8 @@ class LocationController extends Controller
         }else{
             $location = Location::find($id);
             $location->location_name = $request->input('location_name');
+            $location->latitude = $request->input('latitude');
+            $location->longitude = $request->input('longitude');
 
             $location->save();
             return redirect()->route('location');
@@ -91,6 +99,6 @@ class LocationController extends Controller
         $location = Location::findOrFail($id);
         $location->delete();
 
-        return redirect()->route('location');
+        return redirect()->route('location')->with('success','Delete this data');
     }
 }

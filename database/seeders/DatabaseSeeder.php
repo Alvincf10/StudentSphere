@@ -20,5 +20,37 @@ class DatabaseSeeder extends Seeder
             'email' => 'admin@gmail.com',
             'password' => Hash::make('admin123')
         ]);
+
+        \App\Models\Location::factory()->create([
+            'location_name' => 'Jalan Anggrek',
+            'latitude' => '-6.200000',
+            'longitude' => '106.816666'
+        ]);
+
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Conference'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Workshop'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Sport'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Social'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Art'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Fashion'
+        ]);
+        \App\Models\Category::factory()->create([
+            'category_name' => 'Game'
+        ]);
+
+        \App\Models\Organizer::factory()->create([
+            'name_organizer' => 'Binus'
+        ]);
     }
 }

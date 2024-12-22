@@ -25,7 +25,7 @@
                     @enderror
                   </div>
                   <div class="row">
-                      <div class="mb-4 col-md-11 input-password">
+                      <div class="mb-4 col-md-12 input-password">
                         <label for="password" class="form-label">Password</label>
                         <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
                         @error('password')
@@ -34,9 +34,9 @@
                             </span>
                         @enderror
                       </div>
-                      <div class="col-md-1">
+                      {{-- <div class="col-md-1">
                           <span id="toggle-password" type="button" class="btn btn-light btn-eye"><i class="ti ti-eye-close"></i></span>
-                      </div>
+                      </div> --}}
                   </div>
 
                   <button type="submit" class="btn btn-primary w-100 py-8 fs-4 mb-4 mt-3 rounded-2">Login</button>

@@ -3,32 +3,78 @@
 namespace App\Http\Controllers\Admin\MasterData;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
+use App\Models\Location;
+use App\Models\Organizer;
+use App\Models\Program;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
 
 class EventController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Program $program)
     {
-        return  view('layouts.admin.Master-data.Event.index');
+        $program = Program::with('organizer','location','category')->get();
+        return  view('layouts.admin.Master-data.Event.index',compact('program'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Organizer $organizer, Program  $program, Location $location, Category $category)
     {
-        //
+        $organizer = $organizer->all();
+        $location = $location->all();
+        $category = $category->all();
+        return view('layouts.admin.Master-data.Event.add',compact('organizer','location','category'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, Program $program)
     {
-        //
+        $validator = Validator::make($request->all(),[
+            'event_name'=>'required',
+            'banner'=>'required|image',
+            'description'=>'required',
+            'price'=>'required',
+            'eventDate'=>'required',
+            'startDate'=>'required',
+            'endDate'=>'required',
+            'qouta'=>'required',
+            'organizer'=>'required',
+            'location'=>'required',
+            'category'=>'required',
+        ]);
+
+        if($validator->fails()){
+            return redirect()->route('event.create')->withErrors($validator)->withInput();
+        }else{
+            $image = $request->file('banner');
+            $filename = time().'.'. $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/events',$image,$filename);
+
+            $program ->program_name =$request->input('event_name');
+            $program -> banner = $filename;
+            $program ->description =$request->input('description');
+            $program ->price =$request->input('price');
+            $program ->date_program =$request->input('eventDate');
+            $program ->start_date_program =$request->input('startDate');
+            $program ->end_date_program =$request->input('endDate');
+            $program ->qouta =$request->input('qouta');
+            $program ->id_organizer =$request->input('organizer');
+            $program ->id_location =$request->input('location');
+            $program ->id_category =$request->input('category');
+
+            $program->save();
+            return redirect()->route('event');
+        }
     }
 
     /**
@@ -39,20 +85,74 @@ class EventController extends Controller
         //
     }
 
+
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(string $id, Organizer $organizer, Location $location, Category $category)
     {
-        //
+        $organizer = $organizer->all();
+        $location = $location->all();
+        $category = $category->all();
+
+        $program = Program::find($id);
+        return view('layouts.admin.Master-data.Event.edit',compact('program','organizer','location','category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, string $id, Program $program)
     {
-        //
+        $validator = Validator::make($request->all(), [
+            'event_name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'eventDate' => 'required',
+            'startDate' => 'required',
+            'endDate' => 'required',
+            'qouta' => 'required',
+            'organizer' => 'required',
+            'location' => 'required',
+            'category' => 'required',
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->route('event.edit', ['id' => $id])
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        $program = Program::find($id);
+
+        $program->program_name = $request->input('event_name');
+        $program->description = $request->input('description');
+        $program->price = $request->input('price');
+        $program->date_program = $request->input('eventDate');
+        $program->start_date_program = $request->input('startDate');
+        $program->end_date_program = $request->input('endDate');
+        $program->qouta = $request->input('qouta');
+        $program->id_organizer = $request->input('organizer');
+        $program->id_location = $request->input('location');
+        $program->id_category = $request->input('category');
+
+        if ($request->hasFile('banner')) {
+            $image = $request->file('banner');
+            $filename = time() . '.' . $image->getClientOriginalExtension();
+            Storage::disk('local')->putFileAs('public/events', $image, $filename);
+
+            // Hapus gambar lama jika ada
+            if ($program->banner) {
+                Storage::disk('local')->delete('public/events/' . $program->banner);
+            }
+
+            $program->banner = $filename;
+        }
+
+        $program->save();
+
+        return redirect()->route('event');
+
     }
 
     /**
@@ -60,6 +160,10 @@ class EventController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $program = Program::findOrFail($id);
+
+        $program->delete();
+
+        return redirect()->route('event')->with('success','Delete This Data');
     }
 }

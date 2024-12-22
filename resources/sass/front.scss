@@ -1,0 +1,658 @@
+::-webkit-scrollbar {
+    width: 5px;
+    height: 5px;
+  }
+
+  ::-webkit-scrollbar-track {
+    border-radius: 10px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #F2542E;
+    border-radius: 10px;
+    transition: 0.2;
+  }
+
+body{
+    background-color: #f7f7f7;
+    font-family: "Poppins", sans-serif !important;
+    font-weight: normal;
+    font-style: normal;
+    color: #2A2624;
+}
+
+.cursor-pointer{
+    cursor: pointer;
+}
+
+.text-justify{
+    text-align: justify;
+}
+
+a{
+    color: black;
+    text-decoration: none;
+}
+
+a:hover{
+    color: black;
+
+}
+
+.text-white{
+    color: white;
+}
+
+.footer-menu ul{
+    padding-left: 15px;
+}
+
+.footer-menu ul li{
+    padding: 5px;
+}
+
+.color-primary{
+    color: #F2542E;
+}
+
+.fs-15{
+    font-size: 15px;
+}
+.card-category{
+    font-size: 15px;
+}
+
+.card{
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.25);
+}
+
+.time{
+    text-transform: uppercase;
+}
+
+.card-time{
+    position: absolute;
+    top: 11rem;
+    width: 100%;
+    background-color: #91311B;
+    padding: 0.5rem;
+    font-size: 15px;
+    color: #f9f9f9;
+    text-align: center;
+}
+
+.navbar-collapse input{
+    background: #EBEBEB;
+    border-radius: 10px;
+}
+
+.card-title{
+    font-size: 18px;
+    font-weight: 600;
+    color: #1E1712;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.color-secondary{
+    color: #B1B0AF;
+}
+
+.color-title{
+    color: #595753;
+}
+
+.card-img-top{
+    border-radius: 10px 10px 0 0;
+}
+
+.btn-primary{
+    background-color: #F2542E !important;
+    border-color: #F2542E !important;
+}
+
+.btn-outline-primary{
+    border-color: #F2542E;
+    color: #F27658;
+}
+.btn-outline-primary:hover{
+    background-color: #F2542E;
+    border-color: #F2542E;
+    color: white;
+}
+
+.header-name{
+    font-weight: 600;
+}
+
+.header-section{
+    margin-top: 5rem;
+}
+
+.navbar-custom{
+    background-color: white !important;
+    height: 80px;
+}
+
+.input-search{
+    border-radius: 10px;
+}
+
+.btn-search{
+    border-radius: 10px;
+}
+
+.navbar-nav li a:hover{
+    color: #F2542E !important;
+}
+
+
+.ds-banner{
+    height: 500px;
+    width: 100%;
+}
+
+.ds-banner img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 25px;
+}
+
+.group-icon{
+    cursor: pointer;
+}
+
+.body-icon{
+    background: #FDE5E0;
+    padding: 2rem;
+    border-radius: 50%;
+    height: 135px;
+    width: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.ds-banner-event{
+    background-image: url('../../public/image/background.jpg');
+    background-size: cover;
+    background-position: center;
+    border-radius: 30px;
+    width: 100%;
+    height: 400px;
+}
+
+.tagline-group{
+    width: 85%;
+    text-align: start;
+}
+
+.tagline{
+    color: #551E10;
+    font-weight: 600;
+    font-size: 50px;
+}
+
+.btn-all a{
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.img-event img{
+    height: 400px;
+}
+
+.content-event{
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    margin-left: 7rem;
+}
+
+.banner-event-card{
+    height: 215px;
+}
+
+.banner-event-card img{
+    object-fit: cover;
+    height: 100%;
+}
+
+//event pervious
+.image-container {
+    position: relative;
+}
+
+.image-container {
+    filter: brightness(50%);
+    transition: filter 0.3s ease;
+}
+
+
+.image-text {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    padding: 10px;
+    font-size: 35px;
+    border-radius: 5px;
+    filter: brightness(100%);
+}
+
+.banner-sold{
+    width: 130vh;
+}
+
+.image-sold{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    padding: 10px;
+    font-size: 35px;
+    border-radius: 5px;
+}
+
+
+.content-footer{
+    background-color: #221E1C;
+}
+
+.content-footer .row{
+    max-width: 100%;
+}
+
+.description{
+    max-width: 60%;
+    text-align: justify;
+}
+
+.footer-name{
+    font-weight: 600;
+    color: white;
+}
+
+// EVENT DETAIL
+
+.card-info{
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+}
+
+.purchase{
+    padding-top: 1rem;
+}
+
+.purchase h3{
+    font-weight: 600;
+}
+
+.line-title{
+    position: absolute;
+    width: 50%;
+    left: 25%;
+    bottom: -10px;
+    border-bottom: 2px solid #F2542E;
+}
+.map{
+    padding: 1rem;
+}
+
+.btn-direction{
+    font-size: 15px;
+    padding: 5px 40px;
+    font-weight: bold;
+}
+
+.map-details{
+    max-width: 27rem;
+}
+
+.map-details h1{
+    font-size: 30px !important;
+}
+
+.ticket-box p{
+    margin: 0;
+    color: #7a7a7a;
+    margin-right: 5%;
+}
+
+.txt-ticket p {
+    margin: 0;
+}
+
+.grand-total, price p{
+    color: #F03A11;
+    font-size: 20px;
+    font-weight: bolder;
+}
+
+.detail-price{
+    font-size: 12px;
+    font-weight: 790;
+    color: #F2542E;
+}
+
+.detail-price p {
+    font-size: 15px;
+    font-weight: bolder;
+}
+
+.label-purchase{
+    padding: 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    color: #212529;
+    border: 1px solid grey;
+    border-radius: 0.7rem 0 0 0.7rem;
+    background-color: #e9ecef;
+    opacity: 1;
+    border: none;
+}
+
+.form-group input{
+    padding: 0.75rem;
+    border-radius: 0 0.7rem 0.7rem 0;
+    border: none;
+}
+
+.personal-data .label-purchase{
+    padding: 1rem;
+}
+
+.personal-data input{
+    border: 1px solid grey;
+}
+
+.personal-data input:focus{
+    color: #212529;
+    border: 1px solid grey;
+    outline: 0;
+    box-shadow: none !important;
+}
+.quantity-button {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #ccc;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    background-color: #fef3ef;
+    color: #f7a28f;
+}
+.btn-ticket{
+    width: 100%;
+    border-radius: 0.7rem;
+}
+
+#ticket-quantity {
+    font-size: 18px;
+}
+
+
+#ticket-quantity {
+    margin: 0 10px;
+}
+
+//all event
+.banner-body{
+    background: white;
+    height: 100%;
+    border-radius: 0 10px 10px 0;
+}
+
+.card-banner-img{
+    border-radius: 10px 10px;
+}
+.banner-time{
+    background-color: #91311B;
+    height: 3rem;
+    color: #f9f9f9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0 10px 0 0;
+}
+
+.event-filter{
+    width: 25%;
+    background-color: white;
+    border-radius: 10px;
+    padding:20px;
+    height: 47rem;
+    transition: max-height 0.3s ease-in-out;
+    overflow: hidden;
+    max-height: 1000px;
+}
+
+.form-check-input[type=radio] {
+    border-radius: 50%;
+    transform: scale(1.5);
+    border: 1px solid #5B5955;
+    background-image: none !important;
+}
+
+.form-check-input:checked{
+    background-color: #FDE5E0;
+}
+
+.form-check-input:focus{
+    box-shadow: none;
+}
+
+.img-all-event{
+    border-radius: 10px 0 0 10px;
+}
+
+.title-not-found{
+    font-weight: 700;
+}
+
+// .list-event{
+//     max-height: 76rem
+// }
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1999;
+}
+
+.term:hover{
+    color: #F2542E;
+}
+
+.popup-header{
+    text-align: center;
+    // justify-content: center;
+    // width: 50%;
+    left: 25%;
+    bottom: -10px;
+    border-bottom: 2px solid #F2542E;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    max-width: 50%;
+    text-align: justify;
+    position: relative;
+    top: 25%;
+    left: 25%;
+    width: 90%;
+    height: 60%;
+    max-height: 900px;
+    overflow: scroll;
+}
+
+.popup button#close-terms-popup {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.card-payment {
+    width: 40rem;
+}
+
+.img-container{
+    height: 90px;
+}
+
+.check-trans a:hover{
+    color: #F2542E !important;
+}
+
+
+// about us
+.card-about{
+    background-color: #FDE5E0;
+}
+
+.text-weight{
+    font-weight: 500;
+    // line-height: 1.2em;
+}
+
+@media screen and (max-width:1400px) {
+    .card-event  .card{
+        width: 17rem !important;
+    }
+
+}
+
+@media screen and (max-width:1200px) {
+    .card-event  .card{
+        width: 14rem !important;
+    }
+
+    .card-time{
+        top: 7rem;
+    }
+
+    .btn-direction{
+        padding: 5px 20px;
+        font-size: 13px;
+    }
+
+}
+@media screen and (max-width:993px) {
+    .card-event .card{
+        width: 20rem !important;
+    }
+    .navbar-custom{
+        height: auto;
+    }
+
+   .body-icon{
+    width: 50px;
+    height: 50px;
+    padding: 1rem;
+   }
+
+   .card-time{
+    top: 11rem;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .card-event .card{
+        width: 15rem !important;
+    }
+    .description{
+        max-width: 100%;
+        text-align: justify;
+    }
+
+    .profile-footer{
+        text-align: center;
+    }
+
+    .profile-footer img{
+        width: 25% !important;
+    }
+
+    .card-time{
+        top: 8rem;
+    }
+
+    .ds-banner-event{
+        height: auto;
+    }
+
+    .content-event{
+        margin-left: 0;
+        justify-content: center;
+        padding: 1rem;
+    }
+
+    .event-filter{
+        width: 100%;
+    }
+
+    .list-event{
+        margin-top: 3rem;
+    }
+
+    .filter-collapsed {
+        max-height: 4rem !important;
+      }
+}
+
+@media screen and (max-width:576px) {
+    .card-event .card{
+        width: 14rem !important;
+    }
+
+    .all-event-container{
+        padding: 0 2rem 0 2rem;
+    }
+}
+
+@media screen and (max-width:470px) {
+    .card-event .card{
+        width: 12rem !important;
+    }
+
+    .card-time{
+        top: 6rem;
+    }
+}
+
+@media screen and (max-width:400px) {
+    .card-event .card{
+        width: 10rem !important;
+    }
+
+    .card-time{
+        top: 5rem;
+    }
+}

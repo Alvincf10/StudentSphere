@@ -23,6 +23,12 @@
                       <h6 class="fw-semibold mb-0">Location Name</h6>
                     </th>
                     <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Latitude</h6>
+                    </th>
+                    <th class="border-bottom-0">
+                      <h6 class="fw-semibold mb-0">Longitude</h6>
+                    </th>
+                    <th class="border-bottom-0">
                         <h6>Action</h6>
                     </th>
                   </tr>
@@ -33,6 +39,12 @@
                       <td class="border-bottom-0">{{$locations['id']}}</td>
                       <td class="border-bottom-0">
                         <p class="mb-0 fw-normal">{{$locations['location_name']}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$locations['latitude']}}</p>
+                      </td>
+                      <td class="border-bottom-0">
+                        <p class="mb-0 fw-normal">{{$locations['longitude']}}</p>
                       </td>
                       <td class="border-bottom-0">
                         <a class="btn btn-warning" href="{{route('location.edit',['id'=>$locations['id']])}}"><i class="ti ti-edit"></i></a>
@@ -82,4 +94,9 @@
     $('#deleteModal').modal('show');
   }
 
+  function showDeleteSuccessMessage() {
+    var deleteMessage = document.getElementById('deleteMessage');
+    deleteMessage.innerHTML = 'Data berhasil dihapus.';
+    deleteMessage.style.display = 'block'; // Tampilkan pesan
+  }
   </script>
